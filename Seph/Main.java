@@ -47,20 +47,18 @@ public class Main {
             fisierul = selectedFile.toString();
         } else System.exit(0);
 
-        //
+
         String separ = "\\\\";
-        String[] fisier2 = rupere(fisierul, separ);
-
-
-        fisierul = fisier2[fisier2.length - 1];
-
-        fisier2 = rupere(fisierul, "\\.");
-        if (fisier2.length > 2) {
-            System.out.println("Prea multe puncte in numele fisierului!");
+        separat = fisierul.split(separ);
+        fisierul = separat[separat.length-1];
+        separat = fisierul.split("\\.");
+        if (separat.length!=2 || !separat[separat.length-1].toUpperCase().equals("TIF")) {
+            System.out.println("Nume fisier gresit!");
             System.exit(0);
+        } else {
+            fisierul = separat[separat.length - 2];
         }
 
-        fisierul = fisier2[0];
         separat = fisierul.split("_");
         if (separat.length != 4) {
             System.out.println("Numar incorect de parametri!");
