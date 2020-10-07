@@ -1,6 +1,6 @@
 package Seph;
 
-import javax.swing.JFileChooser;
+import javax.swing.*;
 import java.io.File;
 
 public class Main {
@@ -53,7 +53,7 @@ public class Main {
         fisierul = separat[separat.length-1];
         separat = fisierul.split("\\.");
         if (separat.length!=2 || !separat[separat.length-1].toUpperCase().equals("TIF")) {
-            System.out.println("Nume fisier gresit!");
+            JOptionPane.showMessageDialog(null, "Nume fisier gresit!","Message", JOptionPane.ERROR_MESSAGE);
             System.exit(0);
         } else {
             fisierul = separat[separat.length - 2];
@@ -61,7 +61,7 @@ public class Main {
 
         separat = fisierul.split("_");
         if (separat.length != 4) {
-            System.out.println("Numar incorect de parametri!");
+            JOptionPane.showMessageDialog(null, "Numar incorect de parametri!","Message", JOptionPane.ERROR_MESSAGE);
             System.exit(0);
         }
 
@@ -73,8 +73,8 @@ public class Main {
 
         String[] dimens = rupere(separat[3], "x");
         if (dimens.length != 2) {
-            System.out.println("Dimensiunea nu este trecuta corect!");
-            System.exit(0);
+            JOptionPane.showMessageDialog(null, "Dimensiunea nu este trecuta corect!","Message", JOptionPane.ERROR_MESSAGE);
+                        System.exit(0);
         }
 
         try {
@@ -83,20 +83,18 @@ public class Main {
             xx = Float.parseFloat(dimens[1]);
             lucrarecur.dimensiune[1] = dimens[1];
         } catch (Exception e) {
-            System.out.println("Dimensiunea nu este trecuta corect!");
+            JOptionPane.showMessageDialog(null, "Dimensiunea nu este trecuta corect!","Message", JOptionPane.ERROR_MESSAGE);
             System.exit(0);
         }
 
 
 
 
-
-
-        System.out.println("Lucrare curenta:\n"
-                + "Client: " + lucrarecur.client + "\n" + "Material: " + lucrarecur.material + "\n" +
-                "Laminare: " + lucrarecur.laminare + "\n" +
-                "Dimensiune: " + lucrarecur.dimensiune[0] + "x" + lucrarecur.dimensiune[1] + "cm");
-
+String mesaj = "Lucrare curenta:\n"
+        + "Client: " + lucrarecur.client + "\n" + "Material: " + lucrarecur.material + "\n" +
+        "Laminare: " + lucrarecur.laminare + "\n" +
+        "Dimensiune: " + lucrarecur.dimensiune[0] + "x" + lucrarecur.dimensiune[1] + "cm";
+        JOptionPane.showMessageDialog(null, mesaj,"Message", JOptionPane.INFORMATION_MESSAGE);
     }
 
 
