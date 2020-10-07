@@ -6,7 +6,7 @@ import java.io.File;
 public class Main {
     public static String[] separat;
     public static String[] rezultat;
-    public static float xx, yy;
+    public static float xx;
     public static String fisierul;
 
     public static String[] rupere(String textul, String separator) {
@@ -68,11 +68,8 @@ public class Main {
 
         lucrare lucrarecur = new lucrare();
         lucrarecur.client = separat[0];
-        lucrarecur.material = separat[1];
-        lucrarecur.laminare = separat[2];
-
-        lucrarecur.material = mat(lucrarecur.material);
-        lucrarecur.laminare = lam(lucrarecur.laminare);
+        lucrarecur.material = mat(separat[1]);
+        lucrarecur.laminare = lam(separat[2]);
 
         String[] dimens = rupere(separat[3], "x");
         if (dimens.length != 2) {
@@ -82,27 +79,17 @@ public class Main {
 
         try {
             xx = Float.parseFloat(dimens[0]);
-
-        } catch (Exception e) {
-            xx = 0;
-        }
-
-        try {
-            yy = Float.parseFloat(dimens[1]);
-        } catch (Exception e) {
-            yy = 0;
-        }
-
-        if (xx != 0 && yy != 0) {
-
             lucrarecur.dimensiune[0] = dimens[0];
+            xx = Float.parseFloat(dimens[1]);
             lucrarecur.dimensiune[1] = dimens[1];
-
-
-        } else {
+        } catch (Exception e) {
             System.out.println("Dimensiunea nu este trecuta corect!");
             System.exit(0);
         }
+
+
+
+
 
 
         System.out.println("Lucrare curenta:\n"
