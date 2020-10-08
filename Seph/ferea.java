@@ -9,7 +9,6 @@ public class ferea {
     public JButton button1;
     public JPanel fereaView;
     private JTextField textField1;
-    private JTextArea textArea1;
     private JTextPane textPane1;
     public static String[] separat;
     public static String[] rezultat;
