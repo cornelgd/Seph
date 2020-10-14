@@ -2,11 +2,10 @@ package Seph;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ComponentAdapter;
+import java.awt.event.*;
 import java.io.File;
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ferea {
     public JButton button1;
@@ -14,9 +13,8 @@ public class ferea {
     public JTextField textField1;
     public  JTextPane textPane1;
      JList listaLucrari;
-    // public  JList listaLucrari;
-
-
+    int id =0;
+    List<lucrare> lucrari = new ArrayList<lucrare>();
 
     public static String[] separat;
     public static String[] rezultat;
@@ -66,9 +64,7 @@ textField1.setBounds(170,10,400,25);
         frame.add(textField1);
 
         DefaultListModel listModel1 = new DefaultListModel<>();
-       // listModel1.addElement("Windows");
-       // listModel1.addElement("MacOS");
-       // listModel1.addElement("Linux");
+
          JList list1 = new JList<>(listModel1);
         list1.setBounds(10,45, 150,250);
         list1.setOpaque(false);
@@ -87,6 +83,7 @@ frame.add(textPane1);
         frame.setLocationRelativeTo(null);
         frame.setLayout(null);
         frame.setVisible(true);
+
 
 
         button1.addActionListener(new ActionListener() {
@@ -165,7 +162,9 @@ frame.add(textPane1);
 
                 }
 
-                lucrare lucrarecur = new lucrare(separat[0], mat(separat[1]), lam(separat[2]),dimens[0], dimens[1] );
+
+                lucrare lucrarecur = new lucrare(id, separat[0], mat(separat[1]), lam(separat[2]),dimens[0], dimens[1] );
+                lucrari.add(lucrarecur);
 
 
 
@@ -173,20 +172,39 @@ frame.add(textPane1);
                      textul = fisierul;
                  }
                  else  textul = textul + ", " + fisierul;
-
-                mesaj = mesaj +"Lucrare curenta:\n"
-                        + "Client: " + lucrarecur.client + "\n" + "Material: " + lucrarecur.material + "\n" +
-                        "Laminare: " + lucrarecur.laminare + "\n" +
-                        "Dimensiune: " + lucrarecur.dimx + "x" + lucrarecur.dimy + "cm\n\n";
+               // mesaj = mesaj +"Lucrare curenta:\n"+
+                mesaj ="Lucrare curenta:\n"+
+                        "ID: "+ id
+                        + "\nClient: " + lucrari.get(id).client + "\n" + "Material: " + lucrari.get(id).material + "\n" +
+                        "Laminare: " + lucrari.get(id).laminare + "\n" +
+                        "Dimensiune: " + lucrari.get(id).dimx + "x" + lucrari.get(id).dimy + "cm\n\n";
                 // JOptionPane.showMessageDialog(null, mesaj,"Message", JOptionPane.INFORMATION_MESSAGE);
                 textField1.setText(textul);
-                textPane1.setText(mesaj);
-
+               // textPane1.setText(mesaj);
+                id++;
 
                 return mesaj;
 
             }
         });
+
+        list1.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent evt) {
+                JList list1 = (JList)evt.getSource();
+                if (evt.getClickCount() > 0) {
+                    int index = list1.locationToIndex(evt.getPoint());
+                   String  mesaj ="Lucrare curenta:\n"+
+                            "ID: "+ index
+                            + "\nClient: " + lucrari.get(index).client + "\n" + "Material: " + lucrari.get(index).material + "\n" +
+                            "Laminare: " + lucrari.get(index).laminare + "\n" +
+                            "Dimensiune: " + lucrari.get(index).dimx + "x" + lucrari.get(index).dimy + "cm\n\n";
+                    textPane1.setText(mesaj);
+
+
+                }
+            }
+        });
+
 
 
 
