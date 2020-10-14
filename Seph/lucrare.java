@@ -1,8 +1,16 @@
 package Seph;
 
 public class lucrare {
-public  String client,material,laminare;
-//public  String[] dimensiune;
-public String[] dimensiune = new String[2];
+    String client, material, laminare, dimx, dimy;
 
+    lucrare(String client, String material, String laminare, String dimx, String dimy) {
+        this.client = client;
+        this.material = material;
+        this.laminare = laminare;
+        this.dimx = dimx;
+        this.dimy = dimy;
+
+
+    }
 }
+
