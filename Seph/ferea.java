@@ -11,9 +11,9 @@ public class ferea {
   //  public JButton button1;
   //  public JPanel fereaView;
     public JTextField textField1;
-    public  JTextPane textPane1;
+    //public  JTextPane textPane1;
   //   JList listaLucrari;
-    int id =0;
+    //int id =0;
     List<lucrare> lucrari = new ArrayList<lucrare>();
 
     public static String[] separat;
@@ -144,7 +144,7 @@ JLabel etich1,etich2,etich3,etich4,etich5;
         button1.addActionListener(new ActionListener() {
 
             String mesaj = "";
-            String textul ="";
+          //  String textul ="";
             @Override
             public void actionPerformed(ActionEvent e) {
                /* textField1.setText("");
@@ -154,7 +154,7 @@ JLabel etich1,etich2,etich3,etich4,etich5;
                 fisier.setMultiSelectionEnabled(true);
                 fisier.setCurrentDirectory(new File("C:\\"));
                 Component frame = null;
-                fisier.showOpenDialog(frame);
+               fisier.showOpenDialog(frame);
                 File[] files = fisier.getSelectedFiles();
                 int lungime = files.length;
                 String[] nume = new String[lungime];

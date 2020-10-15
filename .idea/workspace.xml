@@ -20,9 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f52fec14-01ab-4d9e-89c7-972f57ef8f18" name="Default Changelist" comment="update">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Seph/ferea.java" beforeDir="false" afterPath="$PROJECT_DIR$/Seph/ferea.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Seph/lucrare.java" beforeDir="false" afterPath="$PROJECT_DIR$/Seph/lucrare.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602769459627</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="More work done">
+      <created>1602774185056</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1602774185056</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -198,22 +203,22 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="782" y="222" key="Github.UntrackedFilesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1601633913251" />
-    <state width="1877" height="195" key="GridCell.Tab.0.bottom" timestamp="1602774072741">
+    <state width="1877" height="195" key="GridCell.Tab.0.bottom" timestamp="1602774260436">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="195" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1602774072741" />
-    <state width="1877" height="195" key="GridCell.Tab.0.center" timestamp="1602774072741">
+    <state width="1877" height="195" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1602774260436" />
+    <state width="1877" height="195" key="GridCell.Tab.0.center" timestamp="1602774260436">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="195" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1602774072741" />
-    <state width="1877" height="195" key="GridCell.Tab.0.left" timestamp="1602774072741">
+    <state width="1877" height="195" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1602774260436" />
+    <state width="1877" height="195" key="GridCell.Tab.0.left" timestamp="1602774260436">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="195" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1602774072741" />
-    <state width="1877" height="195" key="GridCell.Tab.0.right" timestamp="1602774072741">
+    <state width="1877" height="195" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1602774260436" />
+    <state width="1877" height="195" key="GridCell.Tab.0.right" timestamp="1602774260436">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="195" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1602774072741" />
+    <state width="1877" height="195" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1602774260436" />
     <state width="1877" height="352" key="GridCell.Tab.1.bottom" timestamp="1602684111911">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -238,10 +243,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="461" y="169" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1602517832548" />
-    <state x="552" y="257" key="Vcs.Push.Dialog.v2" timestamp="1602769464525">
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2" timestamp="1602774189378">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1602769464525" />
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1602774189378" />
     <state x="730" y="404" key="com.intellij.uiDesigner.propertyInspector.editors.string.StringEditorDialog" timestamp="1602146182286">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
