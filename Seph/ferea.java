@@ -76,8 +76,58 @@ textPane1.setBounds(170,45,400,250);
 textPane1.setOpaque(false);
 frame.add(textPane1);
 
+        JTextField textField2,textField3,textField4,textField5,textField6;
+        textField2 = new JTextField();
+        textField3 = new JTextField();
+        textField4 = new JTextField();
+        textField5 = new JTextField();
+        textField6 = new JTextField();
+        textField2.setVisible(false);
+        textField3.setVisible(false);
+        textField4.setVisible(false);
+        textField5.setVisible(false);
+        textField6.setVisible(false);
 
 
+        textField2.setBounds(260,45,100,25);
+        frame.add(textField2);
+        textField3.setBounds(260,80,300,25);
+        frame.add(textField3);
+        textField4.setBounds(260,115,300,25);
+        frame.add(textField4);
+        textField5.setBounds(260,150,40,25);
+        frame.add(textField5);
+        textField6.setBounds(410,150,40,25);
+        frame.add(textField6);
+
+
+JLabel etich1,etich2,etich3,etich4,etich5;
+        etich1 = new JLabel();
+        etich2 = new JLabel();
+        etich3 = new JLabel();
+        etich4 = new JLabel();
+        etich5 = new JLabel();
+
+        etich1.setText("Client");
+        etich1.setBounds(170,45,100,25);
+        etich1.setVisible(false);
+        frame.add(etich1);
+        etich2.setText("Material");
+        etich2.setBounds(170,80,100,25);
+        etich2.setVisible(false);
+        frame.add(etich2);
+        etich3.setText("Laminare");
+        etich3.setBounds(170,115,100,25);
+        etich3.setVisible(false);
+        frame.add(etich3);
+        etich4.setText("Dimensiune H");
+        etich4.setBounds(170,150,100,25);
+        etich4.setVisible(false);
+        frame.add(etich4);
+        etich5.setText("Dimensiune V");
+        etich5.setBounds(320,150,100,25);
+        etich5.setVisible(false);
+        frame.add(etich5);
 
 
         frame.setLocationRelativeTo(null);
@@ -193,18 +243,35 @@ frame.add(textPane1);
                 JList list1 = (JList)evt.getSource();
                 if (evt.getClickCount() > 0) {
                     int index = list1.locationToIndex(evt.getPoint());
-                   String  mesaj ="Lucrare curenta:\n"+
+                  /*String  mesaj ="Lucrare curenta:\n"+
                             "ID: "+ index
                             + "\nClient: " + lucrari.get(index).client + "\n" + "Material: " + lucrari.get(index).material + "\n" +
                             "Laminare: " + lucrari.get(index).laminare + "\n" +
                             "Dimensiune: " + lucrari.get(index).dimx + "x" + lucrari.get(index).dimy + "cm\n\n";
-                    textPane1.setText(mesaj);
+                    textPane1.setText(mesaj);*/
+
+                    textField2.setVisible(true);
+                    textField3.setVisible(true);
+                    textField4.setVisible(true);
+                    textField5.setVisible(true);
+                    textField6.setVisible(true);
+                    textField2.setText(lucrari.get(index).client);
+                    textField3.setText(lucrari.get(index).material);
+                    textField4.setText(lucrari.get(index).laminare);
+                    textField5.setText(lucrari.get(index).dimx);
+                    textField6.setText(lucrari.get(index).dimy);
+
+                    etich1.setVisible(true);
+                    etich2.setVisible(true);
+                    etich3.setVisible(true);
+                    etich4.setVisible(true);
+                    etich5.setVisible(true);
 
 
                 }
+
             }
         });
-
 
 
 
