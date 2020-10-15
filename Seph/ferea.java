@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ferea {
-    public JButton button1;
-    public JPanel fereaView;
+  //  public JButton button1;
+  //  public JPanel fereaView;
     public JTextField textField1;
     public  JTextPane textPane1;
-     JList listaLucrari;
+  //   JList listaLucrari;
     int id =0;
     List<lucrare> lucrari = new ArrayList<lucrare>();
 
@@ -58,6 +58,11 @@ public class ferea {
         button1.setBounds(10,10,150,25);
         frame.add(button1);
 
+        JButton buttonSave=new JButton("Save modifications");
+        buttonSave.setBounds(400,405,150,25);
+        frame.add(buttonSave);
+        buttonSave.setVisible(false);
+
 
 textField1 = new JTextField();
 textField1.setBounds(170,10,400,25);
@@ -71,10 +76,10 @@ textField1.setBounds(170,10,400,25);
         frame.add(list1);
 
 
-textPane1 = new JTextPane();
+/*textPane1 = new JTextPane();
 textPane1.setBounds(170,45,400,250);
 textPane1.setOpaque(false);
-frame.add(textPane1);
+frame.add(textPane1);*/
 
         JTextField textField2,textField3,textField4,textField5,textField6;
         textField2 = new JTextField();
@@ -142,9 +147,9 @@ JLabel etich1,etich2,etich3,etich4,etich5;
             String textul ="";
             @Override
             public void actionPerformed(ActionEvent e) {
-                textField1.setText("");
+               /* textField1.setText("");
                 textPane1.setText("");
-
+*/
                 JFileChooser fisier = new JFileChooser();
                 fisier.setMultiSelectionEnabled(true);
                 fisier.setCurrentDirectory(new File("C:\\"));
@@ -157,22 +162,24 @@ JLabel etich1,etich2,etich3,etich4,etich5;
                 for ( int i=0;i<lungime;i++){
                     nume[i] = files[i].toString();
                     System.out.println(nume[i] );
-                   mesaj = procesare(nume[i], mesaj);
+                   mesaj = procesare(nume[i]);
                    listModel1.addElement(nume[i]);
 
                 }
 
 
+/*
 
                 mesaj = "";
                 textul = "";
+*/
 
 
 
 
             }
 
-            public  String procesare(String fisierul, String mesaj) {
+            public  String procesare(String fisierul) {
 
                 String separ = "\\\\";
                 separat = fisierul.split(separ);
@@ -213,34 +220,59 @@ JLabel etich1,etich2,etich3,etich4,etich5;
                 }
 
 
-                lucrare lucrarecur = new lucrare(id, separat[0], mat(separat[1]), lam(separat[2]),dimens[0], dimens[1] );
+                lucrare lucrarecur = new lucrare( separat[0], mat(separat[1]), lam(separat[2]),dimens[0], dimens[1] );
                 lucrari.add(lucrarecur);
 
 
 
-                if (textul.equals("")) {
+               /* if (textul.equals("")) {
                      textul = fisierul;
                  }
                  else  textul = textul + ", " + fisierul;
                // mesaj = mesaj +"Lucrare curenta:\n"+
-                mesaj ="Lucrare curenta:\n"+
-                        "ID: "+ id
-                        + "\nClient: " + lucrari.get(id).client + "\n" + "Material: " + lucrari.get(id).material + "\n" +
+                mesaj ="Lucrare curenta:"+
+
+                         "\nClient: " + lucrari.get(id).client + "\n" + "Material: " + lucrari.get(id).material + "\n" +
                         "Laminare: " + lucrari.get(id).laminare + "\n" +
                         "Dimensiune: " + lucrari.get(id).dimx + "x" + lucrari.get(id).dimy + "cm\n\n";
                 // JOptionPane.showMessageDialog(null, mesaj,"Message", JOptionPane.INFORMATION_MESSAGE);
                 textField1.setText(textul);
                // textPane1.setText(mesaj);
                 id++;
-
+*/
                 return mesaj;
 
             }
         });
 
+        buttonSave.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                int index = list1.getSelectedIndex();
+                if (index != -1)
+                {
+//nu merge momentan cu multiple selection
+
+                lucrari.remove(index);
+                lucrare lucrarecur = new lucrare( textField2.getText(), textField3.getText(), textField4.getText(),textField5.getText(), textField6.getText() );
+
+
+                lucrari.add(index, lucrarecur);
+
+                            /*lucrari..set(index, listaLucrari.client) = textField2.getText();
+                            textField3.setText(lucrari.get(index).material);
+                            textField4.setText(lucrari.get(index).laminare);
+                            textField5.setText(lucrari.get(index).dimx);
+                            textField6.setText(lucrari.get(index).dimy);*/
+                }
+            }
+        });
         list1.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent evt) {
                 JList list1 = (JList)evt.getSource();
+                list1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
                 if (evt.getClickCount() > 0) {
                     int index = list1.locationToIndex(evt.getPoint());
                   /*String  mesaj ="Lucrare curenta:\n"+
@@ -266,6 +298,10 @@ JLabel etich1,etich2,etich3,etich4,etich5;
                     etich3.setVisible(true);
                     etich4.setVisible(true);
                     etich5.setVisible(true);
+
+                    buttonSave.setVisible(true);
+
+
 
 
                 }
