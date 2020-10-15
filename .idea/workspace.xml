@@ -19,9 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f52fec14-01ab-4d9e-89c7-972f57ef8f18" name="Default Changelist" comment="update">
-      <change beforePath="$PROJECT_DIR$/Seph/ferea.java" beforeDir="false" afterPath="$PROJECT_DIR$/Seph/ferea.java" afterDir="false" />
-    </list>
+    <list default="true" id="f52fec14-01ab-4d9e-89c7-972f57ef8f18" name="Default Changelist" comment="update" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -157,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602774185056</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="More work done">
+      <created>1602774282955</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1602774282955</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -243,10 +248,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="461" y="169" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1602517832548" />
-    <state x="552" y="257" key="Vcs.Push.Dialog.v2" timestamp="1602774189378">
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2" timestamp="1602774288147">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1602774189378" />
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1602774288147" />
     <state x="730" y="404" key="com.intellij.uiDesigner.propertyInspector.editors.string.StringEditorDialog" timestamp="1602146182286">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
