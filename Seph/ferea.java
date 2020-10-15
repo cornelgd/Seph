@@ -8,12 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ferea {
-  //  public JButton button1;
-  //  public JPanel fereaView;
+
     public JTextField textField1;
-    //public  JTextPane textPane1;
-  //   JList listaLucrari;
-    //int id =0;
+
     List<lucrare> lucrari = new ArrayList<lucrare>();
 
     public static String[] separat;
@@ -76,10 +73,7 @@ textField1.setBounds(170,10,400,25);
         frame.add(list1);
 
 
-/*textPane1 = new JTextPane();
-textPane1.setBounds(170,45,400,250);
-textPane1.setOpaque(false);
-frame.add(textPane1);*/
+
 
         JTextField textField2,textField3,textField4,textField5,textField6;
         textField2 = new JTextField();
@@ -144,12 +138,9 @@ JLabel etich1,etich2,etich3,etich4,etich5;
         button1.addActionListener(new ActionListener() {
 
             String mesaj = "";
-          //  String textul ="";
             @Override
             public void actionPerformed(ActionEvent e) {
-               /* textField1.setText("");
-                textPane1.setText("");
-*/
+
                 JFileChooser fisier = new JFileChooser();
                 fisier.setMultiSelectionEnabled(true);
                 fisier.setCurrentDirectory(new File("C:\\"));
@@ -168,11 +159,7 @@ JLabel etich1,etich2,etich3,etich4,etich5;
                 }
 
 
-/*
 
-                mesaj = "";
-                textul = "";
-*/
 
 
 
@@ -253,7 +240,6 @@ JLabel etich1,etich2,etich3,etich4,etich5;
                 int index = list1.getSelectedIndex();
                 if (index != -1)
                 {
-//nu merge momentan cu multiple selection
 
                 lucrari.remove(index);
                 lucrare lucrarecur = new lucrare( textField2.getText(), textField3.getText(), textField4.getText(),textField5.getText(), textField6.getText() );
@@ -261,11 +247,7 @@ JLabel etich1,etich2,etich3,etich4,etich5;
 
                 lucrari.add(index, lucrarecur);
 
-                            /*lucrari..set(index, listaLucrari.client) = textField2.getText();
-                            textField3.setText(lucrari.get(index).material);
-                            textField4.setText(lucrari.get(index).laminare);
-                            textField5.setText(lucrari.get(index).dimx);
-                            textField6.setText(lucrari.get(index).dimy);*/
+
                 }
             }
         });
@@ -275,12 +257,7 @@ JLabel etich1,etich2,etich3,etich4,etich5;
                 list1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
                 if (evt.getClickCount() > 0) {
                     int index = list1.locationToIndex(evt.getPoint());
-                  /*String  mesaj ="Lucrare curenta:\n"+
-                            "ID: "+ index
-                            + "\nClient: " + lucrari.get(index).client + "\n" + "Material: " + lucrari.get(index).material + "\n" +
-                            "Laminare: " + lucrari.get(index).laminare + "\n" +
-                            "Dimensiune: " + lucrari.get(index).dimx + "x" + lucrari.get(index).dimy + "cm\n\n";
-                    textPane1.setText(mesaj);*/
+
 
                     textField2.setVisible(true);
                     textField3.setVisible(true);
