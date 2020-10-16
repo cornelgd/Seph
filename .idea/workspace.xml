@@ -179,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602780021244</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Code cleanup">
+      <created>1602836985366</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1602836985366</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -202,7 +209,8 @@
     <MESSAGE value="Update UI" />
     <MESSAGE value="UI update" />
     <MESSAGE value="More work done" />
-    <option name="LAST_COMMIT_MESSAGE" value="More work done" />
+    <MESSAGE value="Code cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code cleanup" />
   </component>
   <component name="WindowStateProjectService">
     <state x="765" y="231" key="#com.intellij.ide.util.MemberChooser" timestamp="1602668516581">
@@ -225,22 +233,22 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="782" y="222" key="Github.UntrackedFilesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1601633913251" />
-    <state width="1877" height="195" key="GridCell.Tab.0.bottom" timestamp="1602836946860">
+    <state width="1877" height="195" key="GridCell.Tab.0.bottom" timestamp="1602848486467">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="195" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1602836946860" />
-    <state width="1877" height="195" key="GridCell.Tab.0.center" timestamp="1602836946860">
+    <state width="1877" height="195" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1602848486467" />
+    <state width="1877" height="195" key="GridCell.Tab.0.center" timestamp="1602848486467">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="195" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1602836946860" />
-    <state width="1877" height="195" key="GridCell.Tab.0.left" timestamp="1602836946860">
+    <state width="1877" height="195" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1602848486467" />
+    <state width="1877" height="195" key="GridCell.Tab.0.left" timestamp="1602848486467">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="195" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1602836946860" />
-    <state width="1877" height="195" key="GridCell.Tab.0.right" timestamp="1602836946860">
+    <state width="1877" height="195" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1602848486467" />
+    <state width="1877" height="195" key="GridCell.Tab.0.right" timestamp="1602848486467">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="195" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1602836946860" />
+    <state width="1877" height="195" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1602848486467" />
     <state width="1877" height="352" key="GridCell.Tab.1.bottom" timestamp="1602684111911">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -265,10 +273,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="461" y="169" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1602517832548" />
-    <state x="552" y="257" key="Vcs.Push.Dialog.v2" timestamp="1602780025006">
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2" timestamp="1602836989054">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1602780025006" />
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1602836989054" />
     <state x="730" y="404" key="com.intellij.uiDesigner.propertyInspector.editors.string.StringEditorDialog" timestamp="1602146182286">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

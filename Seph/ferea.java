@@ -155,10 +155,10 @@ JLabel etich1,etich2,etich3,etich4,etich5;
                     System.out.println(nume[i] );
                    mesaj = procesare(nume[i]);
                    listModel1.addElement(nume[i]);
-
                 }
 
 
+                textField1.setText(listModel1.toString().substring(1,listModel1.toString().length()-1));
 
 
 
@@ -211,21 +211,6 @@ JLabel etich1,etich2,etich3,etich4,etich5;
 
 
 
-               /* if (textul.equals("")) {
-                     textul = fisierul;
-                 }
-                 else  textul = textul + ", " + fisierul;
-               // mesaj = mesaj +"Lucrare curenta:\n"+
-                mesaj ="Lucrare curenta:"+
-
-                         "\nClient: " + lucrari.get(id).client + "\n" + "Material: " + lucrari.get(id).material + "\n" +
-                        "Laminare: " + lucrari.get(id).laminare + "\n" +
-                        "Dimensiune: " + lucrari.get(id).dimx + "x" + lucrari.get(id).dimy + "cm\n\n";
-                // JOptionPane.showMessageDialog(null, mesaj,"Message", JOptionPane.INFORMATION_MESSAGE);
-                textField1.setText(textul);
-               // textPane1.setText(mesaj);
-                id++;
-*/
                 return mesaj;
 
             }
