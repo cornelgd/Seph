@@ -151,7 +151,7 @@ JLabel etich1,etich2,etich3,etich4,etich5;
                 String[] nume = new String[lungime];
 
                 for ( int i=0;i<lungime;i++){
-                    nume[i] = files[i].toString();
+                    nume[i] = files[i].getName();
                     System.out.println(nume[i] );
                    mesaj = procesare(nume[i]);
                    listModel1.addElement(nume[i]);
@@ -168,23 +168,22 @@ JLabel etich1,etich2,etich3,etich4,etich5;
 
             public  String procesare(String fisierul) {
 
-                String separ = "\\\\";
-                separat = fisierul.split(separ);
-                fisierul = separat[separat.length - 1];
+
                 separat = fisierul.split("\\.");
 
                 if (separat.length != 2 || !separat[separat.length - 1].toUpperCase().equals("TIF")) {
-                    JOptionPane.showMessageDialog(null, "Nume fisier gresit!", "Message", JOptionPane.ERROR_MESSAGE);
-                    return ""; // System.exit(0);
+                    JOptionPane.showMessageDialog(null, "Nume fisier gresit! - " + fisierul, "Message", JOptionPane.ERROR_MESSAGE);
+                     System.exit(0);
                 } else {
                     fisierul = separat[separat.length - 2];
                 }
 
+
                 separat = fisierul.split("_");
                 if (separat.length != 4) {
-                    JOptionPane.showMessageDialog(null, "Numar incorect de parametri!", "Message", JOptionPane.ERROR_MESSAGE);
-                    return"";
-                    //  System.exit(0);
+                    JOptionPane.showMessageDialog(null, "Numar incorect de parametri! - "+ fisierul, "Message", JOptionPane.ERROR_MESSAGE);
+                   // return"";
+                      System.exit(0);
                 }
 
 
@@ -192,8 +191,8 @@ JLabel etich1,etich2,etich3,etich4,etich5;
 
                 String[] dimens = rupere(separat[3], "x");
                 if (dimens.length != 2) {
-                    JOptionPane.showMessageDialog(null, "Dimensiunea nu este trecuta corect!", "Message", JOptionPane.ERROR_MESSAGE);
-                    return"";//   System.exit(0);
+                    JOptionPane.showMessageDialog(null, "Dimensiunea nu este trecuta corect! - " + fisierul, "Message", JOptionPane.ERROR_MESSAGE);
+                       System.exit(0);
                 }
 
 
@@ -201,7 +200,7 @@ JLabel etich1,etich2,etich3,etich4,etich5;
                     xx = Float.parseFloat(dimens[0]);
                     xx = Float.parseFloat(dimens[1]);
                 } catch (Exception e1) {
-                    JOptionPane.showMessageDialog(null, "Dimensiunea nu este trecuta corect!", "Message", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Dimensiunea nu este trecuta corect! - " + fisierul, "Message", JOptionPane.ERROR_MESSAGE);
                     return "";//  System.exit(0);
 
                 }
