@@ -4,27 +4,31 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import static Seph.WriteDb.*;
 
 public class ferea {
 
     public JTextField textField1;
 
-    List<lucrare> lucrari = new ArrayList<lucrare>();
+    List<lucrare> lucrari = new ArrayList<>();
 
     public static String[] separat;
     public static String[] rezultat;
     public static float xx;
 
-    public static String[] rupere(String textul, String separator) {
+    public  String[] rupere(String textul, String separator) {
 
         rezultat = textul.split(separator);
         return rezultat;
     }
 
 
-    public static String mat(String text1) {
+    public  String mat(String text1) {
         return switch (text1) {
             case "kmx3" -> "Komatex 3 mm";
             case "kmx1" -> "Komatex 1 mm";
@@ -32,7 +36,7 @@ public class ferea {
         };
     }
 
-    public static String lam(String text2) {
+    public  String lam(String text2) {
         return switch (text2) {
             case "plm" -> "Laminare mata";
             case "pll" -> "Laminare lucioasa";
@@ -133,7 +137,7 @@ JLabel etich1,etich2,etich3,etich4,etich5;
         frame.setLayout(null);
         frame.setVisible(true);
 
-
+int id = 1;
 
         button1.addActionListener(new ActionListener() {
 
@@ -152,7 +156,7 @@ JLabel etich1,etich2,etich3,etich4,etich5;
 
                 for ( int i=0;i<lungime;i++){
                     nume[i] = files[i].getName();
-                    System.out.println(nume[i] );
+                 //   System.out.println(nume[i] );
                    mesaj = procesare(nume[i]);
                    listModel1.addElement(nume[i]);
                 }
@@ -206,7 +210,7 @@ JLabel etich1,etich2,etich3,etich4,etich5;
                 }
 
 
-                lucrare lucrarecur = new lucrare( separat[0], mat(separat[1]), lam(separat[2]),dimens[0], dimens[1] );
+                lucrare lucrarecur = new lucrare( id, separat[0], mat(separat[1]), lam(separat[2]),dimens[0], dimens[1] );
                 lucrari.add(lucrarecur);
 
 
@@ -226,10 +230,16 @@ JLabel etich1,etich2,etich3,etich4,etich5;
                 {
 
                 lucrari.remove(index);
-                lucrare lucrarecur = new lucrare( textField2.getText(), textField3.getText(), textField4.getText(),textField5.getText(), textField6.getText() );
+                lucrare lucrarecur = new lucrare( id, textField2.getText(), textField3.getText(), textField4.getText(),textField5.getText(), textField6.getText() );
 
 
                 lucrari.add(index, lucrarecur);
+
+
+                    WriteDb appI = new WriteDb();
+        appI.insert(id, textField2.getText(),  textField3.getText(),  textField4.getText(),  Integer.parseInt(textField5.getText()),  Integer.parseInt(textField6.getText()));
+               //     appI.update(1, "Sephora", "kmx1", "lucioasa", 111, 222 );
+
 
 
                 }
@@ -274,6 +284,19 @@ JLabel etich1,etich2,etich3,etich4,etich5;
 
     }
 
+    private void writeToFile(String listModel1) {
+       /* try {
+            FileWriter myDb = new FileWriter("jdbc:sqlite:c:\\Users\\Cc1\\IdeaProjects\\Seph\\Seph\\baza.db",true);
+            myDb.write( listModel1.toString().substring(1,listModel1.toString().length()-1)            +"\n");
+            myDb.close();
+            System.out.println("Successfully wrote to the file.");
+        } catch (IOException e1) {
+            System.out.println("An error occurred writing data.");
+        }*/
+
+
+
+    }
 
 
 }

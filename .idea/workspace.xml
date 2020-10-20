@@ -20,8 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f52fec14-01ab-4d9e-89c7-972f57ef8f18" name="Default Changelist" comment="update">
+      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Seph/InsertDb.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Seph.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Seph.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Seph/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Seph/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Seph/ferea.java" beforeDir="false" afterPath="$PROJECT_DIR$/Seph/ferea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Seph/lucrare.java" beforeDir="false" afterPath="$PROJECT_DIR$/Seph/lucrare.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +55,10 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="365" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Seph/sqlite-jdbc-3.32.3.2.jar" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
@@ -186,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602836985366</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Code cleanup">
+      <created>1602848540114</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1602848540114</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -225,6 +242,18 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="717" y="394" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1050@0.0.1920.1050" timestamp="1601633853443" />
+    <state x="810" y="402" key="DBNavigator.ConnectionAuthenticationDialog" timestamp="1603030631558">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="810" y="402" key="DBNavigator.ConnectionAuthenticationDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1603030631558" />
+    <state x="490" y="179" key="DBNavigator.ProjectSettingsDialog" timestamp="1603030746868">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="490" y="179" key="DBNavigator.ProjectSettingsDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1603030746868" />
+    <state x="740" y="265" key="FileChooserDialogImpl" timestamp="1603186749716">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="740" y="265" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1603186749716" />
     <state x="838" y="422" key="Github.ShareDialog" timestamp="1601633903738">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -233,22 +262,22 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="782" y="222" key="Github.UntrackedFilesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1601633913251" />
-    <state width="1877" height="195" key="GridCell.Tab.0.bottom" timestamp="1602848486467">
+    <state width="1877" height="268" key="GridCell.Tab.0.bottom" timestamp="1603200290707">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="195" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1602848486467" />
-    <state width="1877" height="195" key="GridCell.Tab.0.center" timestamp="1602848486467">
+    <state width="1877" height="268" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1603200290707" />
+    <state width="1877" height="268" key="GridCell.Tab.0.center" timestamp="1603200290707">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="195" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1602848486467" />
-    <state width="1877" height="195" key="GridCell.Tab.0.left" timestamp="1602848486467">
+    <state width="1877" height="268" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1603200290707" />
+    <state width="1877" height="268" key="GridCell.Tab.0.left" timestamp="1603200290707">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="195" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1602848486467" />
-    <state width="1877" height="195" key="GridCell.Tab.0.right" timestamp="1602848486467">
+    <state width="1877" height="268" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1603200290707" />
+    <state width="1877" height="268" key="GridCell.Tab.0.right" timestamp="1603200290707">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="195" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1602848486467" />
+    <state width="1877" height="268" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1603200290707" />
     <state width="1877" height="352" key="GridCell.Tab.1.bottom" timestamp="1602684111911">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -269,14 +298,14 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="620" y="239" key="GuiDesigner.FormSource.Dialog/0.0.1920.1050@0.0.1920.1050" timestamp="1602667599022" />
-    <state x="461" y="169" key="SettingsEditor" timestamp="1602517832548">
+    <state x="461" y="169" key="SettingsEditor" timestamp="1603199893152">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="461" y="169" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1602517832548" />
-    <state x="552" y="257" key="Vcs.Push.Dialog.v2" timestamp="1602836989054">
+    <state x="461" y="169" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1603199893152" />
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2" timestamp="1602848543410">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1602836989054" />
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1602848543410" />
     <state x="730" y="404" key="com.intellij.uiDesigner.propertyInspector.editors.string.StringEditorDialog" timestamp="1602146182286">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -285,10 +314,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="505" y="260" width="910" height="630" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1050@0.0.1920.1050" timestamp="1602144917153" />
-    <state x="551" y="145" key="new project wizard" timestamp="1602496635886">
+    <state x="551" y="145" key="new project wizard" timestamp="1603197620704">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="551" y="145" key="new project wizard/0.0.1920.1050@0.0.1920.1050" timestamp="1602496635886" />
+    <state x="551" y="145" key="new project wizard/0.0.1920.1050@0.0.1920.1050" timestamp="1603197620704" />
     <state x="756" y="272" key="refactoring.ChangeSignatureDialog" timestamp="1602233653595">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
