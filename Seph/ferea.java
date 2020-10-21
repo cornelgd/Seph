@@ -49,7 +49,7 @@ public class ferea {
 
 
     public ferea() {
-
+        int id = 1;
         JFrame frame = new JFrame("Fisa lucrari");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        frame.setSize(600,500);
@@ -137,7 +137,7 @@ JLabel etich1,etich2,etich3,etich4,etich5;
         frame.setLayout(null);
         frame.setVisible(true);
 
-int id = 1;
+
 
         button1.addActionListener(new ActionListener() {
 
@@ -221,6 +221,10 @@ int id = 1;
         });
 
         buttonSave.addActionListener(new ActionListener() {
+            WriteDb appI = new WriteDb();
+        //    appI.insert(id, textField2.getText(),  textField3.getText(),  textField4.getText(),  Integer.parseInt(textField5.getText()),  Integer.parseInt(textField6.getText()));
+
+
 
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -236,7 +240,7 @@ int id = 1;
                 lucrari.add(index, lucrarecur);
 
 
-                    WriteDb appI = new WriteDb();
+
         appI.insert(id, textField2.getText(),  textField3.getText(),  textField4.getText(),  Integer.parseInt(textField5.getText()),  Integer.parseInt(textField6.getText()));
                //     appI.update(1, "Sephora", "kmx1", "lucioasa", 111, 222 );
 

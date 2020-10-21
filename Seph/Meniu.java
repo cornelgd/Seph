@@ -5,18 +5,19 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.sql.SQLException;
 
 public class Meniu {
     public  Meniu() {
 
-        JFrame frameMeniu = new JFrame("Ce facem");
+        JFrame frameMeniu = new JFrame("Welcome");
         frameMeniu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frameMeniu.setSize(600,500);
 
 
 
 
-        JButton buttonNew=new JButton("Save modifications");
+        JButton buttonNew=new JButton("Lucrare noua");
         buttonNew.setBounds(10,105,150,25);
         frameMeniu.add(buttonNew);
       //  buttonNew.setVisible(true);
@@ -34,10 +35,7 @@ public class Meniu {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-
-             //   new ferea();
-
-
+               new fereaRead();
             }
 
         });

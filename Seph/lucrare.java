@@ -1,8 +1,12 @@
 package Seph;
 
 public class lucrare {
-    int id;
-    String client, material, laminare, dimx, dimy;
+     int id;
+     String client;
+    String material;
+    String laminare;
+    String dimx;
+    String dimy;
 
     lucrare( int id, String client, String material, String laminare, String dimx, String dimy) {
         this.id = id;

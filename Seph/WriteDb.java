@@ -2,16 +2,15 @@ package Seph;
 
 
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public  class WriteDb {
 
 
-    private  Connection connect() {
+    private  Connection conecteaza() {
         // SQLite connection string
         String url = "jdbc:sqlite:d:\\baza-ok.db";
         Connection conn = null;
@@ -28,7 +27,7 @@ public  class WriteDb {
     public  void insert(int id, String client, String material, String laminare, int dimx, int dimy ) {
         String sql = "INSERT INTO Lucrare(id,client,material,laminare,dimx,dimy) VALUES(?,?,?,?,?,?)";
 
-        try ( Connection conn = this.connect();
+        try (Connection conn = this.conecteaza();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, id);
             pstmt.setString(2, client);
@@ -50,7 +49,7 @@ public  class WriteDb {
                 + "client = ? "
                 + "WHERE id = ?";*/
 
-        try (Connection conn = this.connect();
+        try (Connection conn = this.conecteaza();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setInt(1, id);
@@ -67,6 +66,71 @@ public  class WriteDb {
     }
 
 
+
+    public List<lucrare> read(int id) throws SQLException { //, String client, String material, String laminare, int dimx, int dimy) {
+
+      //  List<lucrare> lucrari = listaLucrari();
+
+        List<lucrare> lucrari = new ArrayList<lucrare>();
+        Connection conn = this.conecteaza();
+       // int id = 1;
+        String sql ="";
+
+        if (id == 0){
+
+            sql = "SELECT id, client, material, laminare, dimx, dimy FROM Lucrare";
+            //  pstmt.setInt(1, id);
+
+        } else {
+            sql = "SELECT id, client, material, laminare, dimx, dimy FROM Lucrare WHERE id = ?";
+        }
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        if (id != 0){
+
+            pstmt.setInt(1, id);
+
+        }
+
+
+
+        try (
+
+                ResultSet rs = pstmt.executeQuery()
+        )
+        {
+          //  System.out.println(lucrari.get(0).client + " inainte de next");
+            while (rs.next()) {
+                lucrari.add(new lucrare(
+
+                        rs.getInt("id"),
+                        rs.getString("client"),
+                        rs.getString("material"),
+                        rs.getString("laminare"),
+                        Integer.toString(rs.getInt("dimx")),
+                        Integer.toString(rs.getInt("dimy"))));
+                System.out.println(rs.getString("client")+ " - din rsget");
+            }
+        }
+
+        System.out.println(lucrari.get(0) + " din afara");
+
+        System.out.println(lucrari.get(0).client + " din afara");
+        System.out.println(lucrari.get(1).client + " din afara");
+        System.out.println(lucrari.get(2).client + " din afara");
+
+
+        return lucrari;
+
+
+
+
+
+    }
+
+
+    /*public List<lucrare> listaLucrari() throws SQLException {
+        //
+    }*/
 
 
     public  void main(String[] args) {
