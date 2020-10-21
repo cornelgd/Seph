@@ -108,15 +108,11 @@ public  class WriteDb {
                         rs.getString("laminare"),
                         Integer.toString(rs.getInt("dimx")),
                         Integer.toString(rs.getInt("dimy"))));
-                System.out.println(rs.getString("client")+ " - din rsget");
+               // System.out.println(rs.getString("client")+ " - din rsget");
             }
         }
 
-        System.out.println(lucrari.get(0) + " din afara");
 
-        System.out.println(lucrari.get(0).client + " din afara");
-        System.out.println(lucrari.get(1).client + " din afara");
-        System.out.println(lucrari.get(2).client + " din afara");
 
 
         return lucrari;
