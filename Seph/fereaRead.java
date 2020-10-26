@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class fereaRead {
-    //public int isLast1;
 
     public JTextField textField1;
 
@@ -19,14 +18,14 @@ public class fereaRead {
     public static String[] separat;
     public static String[] rezultat;
     public static float xx;
-    //  public int[] indexFis = new int[];
     public List<Integer> indexFis = new ArrayList<>();
     public int nrcrt, idcur;
+    public  int index1 = 0;
 
+    public  List<lucrare> fisiereSel = new ArrayList<>();
 
     public fereaRead() throws SQLException {
 
-        // int id = 1;
         JFrame frame = new JFrame("Fisa lucrari");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(900, 500);
@@ -114,19 +113,6 @@ public class fereaRead {
         frame.add(listFis1);
 
 
-/*        WriteDb appR = new WriteDb();
-        try {
-            lucrari = appR.read(0);//,  client,  material,  laminare,  dimx,  dimy);
-            int count = lucrari.size();
-         //   System.out.println(count);
-            if (count == 0) {
-                //fa ceva sa nu crape daca nu exista cu idul ala
-            }
-         //   System.out.println(lucrari.get(0).id +" " +lucrari.get(0).client);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }*/
-        //   System.out.println("1"+  client +  material+  laminare+  Integer.toString(dimx),  Integer.toString(dimy));
 
 
 
@@ -157,28 +143,16 @@ public class fereaRead {
 
             if (WriteDb.isLastId == 1) //then if no elements returned
             {
-             //   System.out.println(WriteDb.isLast2);
                 break;
             }
 
-          //  arrayId[j] = appR.read(i).get(0).id;
-         //   String txtinlista = arrayId[j] + " - " +appR.read(i).get(0).client;
-
-          //  System.out.println("id din appr "+appR.lucrariCuId.get(0).id);
            arrayId[j] = appR.lucrariCuId.get(0).id;
             String txtinlista = arrayId[j] + " - " +appR.lucrariCuId.get(0).client;
 
-
-
             listaLucr.addElement(txtinlista);
-         //   System.out.println(arrayId[j] + " "+WriteDb.howmany);
             appR.lucrariCuId.clear();
             j++;
             };
-
-
-
-
 
 
 
@@ -212,68 +186,44 @@ public class fereaRead {
         });
 
 
+
         listFis1.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent evt) {
                 JList list1 = (JList)evt.getSource();
                 list1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
                 if (evt.getClickCount() > 0) {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    int index = list1.locationToIndex(evt.getPoint());
-                    Integer nrcrtfis = indexFis.get(index); // indexul din array
-                    nrcrt = lucrari.get(nrcrtfis).nrcrt;  // indexul din db, e cu 1 mai mare pt ca incepe de la 1 nu la 0
-                    System.out.println("indexdin lista fis - "+index+"; nrcrtfis - "+nrcrtfis+"; nrcrtdb - "+nrcrt);
-
+                    int index = list1.getSelectedIndex();
                     textField2.setVisible(true);
                     textField3.setVisible(true);
                     textField4.setVisible(true);
                     textField5.setVisible(true);
                     textField6.setVisible(true);
-                    idcur = lucrari.get(nrcrtfis).id;
-                    textField2.setText(lucrari.get(nrcrtfis).client);
-                    textField3.setText(lucrari.get(nrcrtfis).material);
-                    textField4.setText(lucrari.get(nrcrtfis).laminare);
-                    textField5.setText(lucrari.get(nrcrtfis).dimx);
-                    textField6.setText(lucrari.get(nrcrtfis).dimy);
-
+                    textField2.setText(fisiereSel.get(index).client);
+                    textField3.setText(fisiereSel.get(index).material);
+                    textField4.setText(fisiereSel.get(index).laminare);
+                    textField5.setText(fisiereSel.get(index).dimx);
+                    textField6.setText(fisiereSel.get(index).dimy);
                     etich1.setVisible(true);
                     etich2.setVisible(true);
                     etich3.setVisible(true);
                     etich4.setVisible(true);
                     etich5.setVisible(true);
-
                     buttonSave.setVisible(true);
-
 
                 }
 
             }
         });
 
-     //   listaFis.addElement( "ewfwe");
-
         listLucr1.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent evt) {
                 indexFis.clear();
                 listaFis.removeAllElements();
-
                 JList list2 = (JList)evt.getSource();
                 list2.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
                 if (evt.getClickCount() > 0) {
-
-                    int index1 = arrayId[list2.getSelectedIndex()];
+                    fisiereSel.clear();
+                  index1 = arrayId[list2.getSelectedIndex()];
                     int nrFis = 0;
 
                     WriteDb fisS = new WriteDb();
@@ -285,7 +235,6 @@ public class fereaRead {
                     int[] arrayId1 = new int[nrFis + 1];
 
                     WriteDb appRf = new WriteDb();
-                    System.out.println(nrFis);
 
                     int jk = 0;
                     for (int i = 0; i < nrFis; i++) {
@@ -296,52 +245,23 @@ public class fereaRead {
                             throwables.printStackTrace();
                         } //read first
 
-
-
                         arrayId1[jk] = appRf.fisiere.get(i+1).id;
                         String txtinlista1 = arrayId1[jk] + " - " + appRf.fisiere.get(i+1).client;
 
-
                         listaFis.addElement(txtinlista1);
+
+                        fisiereSel.add(new lucrare(
+                                appRf.fisiere.get(i+1).nrcrt,
+                                appRf.fisiere.get(i+1).id,
+                                appRf.fisiere.get(i+1).client,
+                                appRf.fisiere.get(i+1).material,
+                                appRf.fisiere.get(i+1).laminare,
+                                appRf.fisiere.get(i+1).dimx,
+                                appRf.fisiere.get(i+1).dimy));
+
+
                         appRf.fisiere.clear();
                         jk++;
-
-
-
-
-
-
-
-
-
-                   /* for ( int i=0;i<nrFis;i++)
-                    {
-                        try {
-
-
-                            listaFis.addElement( appRf.readfis(index1).get(i).client);
-                        } catch (SQLException throwables) {
-                            throwables.printStackTrace();
-                        }
-
-                    };*/
-
-
-
-
-
-
-
-                 /*   for ( int i=0;i<lucrari.size();i++)
-                    {
-                        if (lucrari.get(i).id == index1)
-                        {
-                            listaFis.addElement(lucrari.get(i).id + lucrari.get(i).client);
-                            indexFis.add(i);
-                            System.out.println("nr cur - "+i);
-                        }
-                     //   System.out.println("listafis - "+listaFis.get(i)+ "----i-"+i);
-                    }*/
 
 
                     }

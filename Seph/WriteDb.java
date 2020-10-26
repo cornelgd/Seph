@@ -112,8 +112,6 @@ public    List<lucrare> lucrariCuId = new ArrayList<>();
                             rs.getString("laminare"),
                             Integer.toString(rs.getInt("dimx")),
                             Integer.toString(rs.getInt("dimy"))));
-                  //  System.out.println(lucrari.get(1).id);
-                  //  System.out.println(lucrari.get(2).id);
 
                 } while (rs.next());
             }
@@ -154,7 +152,6 @@ public    List<lucrare> lucrariCuId = new ArrayList<>();
                             rs.getString("laminare"),
                             Integer.toString(rs.getInt("dimx")),
                             Integer.toString(rs.getInt("dimy"))));
-
                 } while (rs.next());
             }
                 return fisiere;
@@ -182,9 +179,7 @@ public    List<lucrare> lucrariCuId = new ArrayList<>();
         int fissize = rs.getInt("count(id)");
         return fissize;
     }
-    /*public List<lucrare> listaLucrari() throws SQLException {
-        //
-    }*/
+
 
 
     public  void main(String[] args) {
