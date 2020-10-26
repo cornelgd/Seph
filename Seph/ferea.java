@@ -50,6 +50,7 @@ public class ferea {
 
     public ferea() {
         int id = 1;
+        int nrcrt = 1;
         JFrame frame = new JFrame("Fisa lucrari");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        frame.setSize(600,500);
@@ -210,7 +211,7 @@ JLabel etich1,etich2,etich3,etich4,etich5;
                 }
 
 
-                lucrare lucrarecur = new lucrare( id, separat[0], mat(separat[1]), lam(separat[2]),dimens[0], dimens[1] );
+                lucrare lucrarecur = new lucrare( nrcrt, id, separat[0], mat(separat[1]), lam(separat[2]),dimens[0], dimens[1] );
                 lucrari.add(lucrarecur);
 
 
@@ -234,14 +235,14 @@ JLabel etich1,etich2,etich3,etich4,etich5;
                 {
 
                 lucrari.remove(index);
-                lucrare lucrarecur = new lucrare( id, textField2.getText(), textField3.getText(), textField4.getText(),textField5.getText(), textField6.getText() );
+                lucrare lucrarecur = new lucrare( nrcrt, id, textField2.getText(), textField3.getText(), textField4.getText(),textField5.getText(), textField6.getText() );
 
 
                 lucrari.add(index, lucrarecur);
 
 
 
-        appI.insert(id, textField2.getText(),  textField3.getText(),  textField4.getText(),  Integer.parseInt(textField5.getText()),  Integer.parseInt(textField6.getText()));
+        appI.insert(nrcrt, id, textField2.getText(),  textField3.getText(),  textField4.getText(),  Integer.parseInt(textField5.getText()),  Integer.parseInt(textField6.getText()));
                //     appI.update(1, "Sephora", "kmx1", "lucioasa", 111, 222 );
 
 

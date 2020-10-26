@@ -1,6 +1,7 @@
 package Seph;
 
 public class lucrare {
+    int nrcrt;
      int id;
      String client;
     String material;
@@ -8,7 +9,8 @@ public class lucrare {
     String dimx;
     String dimy;
 
-    lucrare( int id, String client, String material, String laminare, String dimx, String dimy) {
+    lucrare( int nrcrt, int id, String client, String material, String laminare, String dimx, String dimy) {
+        this.nrcrt = nrcrt;
         this.id = id;
         this.client = client;
         this.material = material;

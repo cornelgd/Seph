@@ -21,8 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="f52fec14-01ab-4d9e-89c7-972f57ef8f18" name="Default Changelist" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Seph/Meniu.java" beforeDir="false" afterPath="$PROJECT_DIR$/Seph/Meniu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Seph/WriteDb.java" beforeDir="false" afterPath="$PROJECT_DIR$/Seph/WriteDb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Seph/ferea.java" beforeDir="false" afterPath="$PROJECT_DIR$/Seph/ferea.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Seph/fereaRead.java" beforeDir="false" afterPath="$PROJECT_DIR$/Seph/fereaRead.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Seph/lucrare.java" beforeDir="false" afterPath="$PROJECT_DIR$/Seph/lucrare.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603276066872</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="more work">
+      <created>1603294623332</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1603294623332</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -237,7 +247,8 @@
     <MESSAGE value="Code cleanup" />
     <MESSAGE value="More work" />
     <MESSAGE value="Read db" />
-    <option name="LAST_COMMIT_MESSAGE" value="Read db" />
+    <MESSAGE value="more work" />
+    <option name="LAST_COMMIT_MESSAGE" value="more work" />
   </component>
   <component name="WindowStateProjectService">
     <state x="765" y="231" key="#com.intellij.ide.util.MemberChooser" timestamp="1602668516581">
@@ -248,6 +259,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="689" y="314" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1602145006719" />
+    <state x="664" y="251" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog" timestamp="1603702864392">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="664" y="251" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1603702864392" />
     <state x="717" y="394" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1601633853443">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -272,38 +287,38 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="782" y="222" key="Github.UntrackedFilesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1601633913251" />
-    <state width="1877" height="268" key="GridCell.Tab.0.bottom" timestamp="1603293990889">
+    <state width="1877" height="352" key="GridCell.Tab.0.bottom" timestamp="1603709241515">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="268" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1603293990889" />
-    <state width="1877" height="268" key="GridCell.Tab.0.center" timestamp="1603293990889">
+    <state width="1877" height="352" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1603709241515" />
+    <state width="1877" height="352" key="GridCell.Tab.0.center" timestamp="1603709241515">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="268" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1603293990889" />
-    <state width="1877" height="268" key="GridCell.Tab.0.left" timestamp="1603293990889">
+    <state width="1877" height="352" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1603709241515" />
+    <state width="1877" height="352" key="GridCell.Tab.0.left" timestamp="1603709241515">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="268" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1603293990889" />
-    <state width="1877" height="268" key="GridCell.Tab.0.right" timestamp="1603293990889">
+    <state width="1877" height="352" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1603709241515" />
+    <state width="1877" height="352" key="GridCell.Tab.0.right" timestamp="1603709241515">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="268" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1603293990889" />
-    <state width="1877" height="352" key="GridCell.Tab.1.bottom" timestamp="1603276138426">
+    <state width="1877" height="352" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1603709241515" />
+    <state width="1877" height="352" key="GridCell.Tab.1.bottom" timestamp="1603709241515">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="352" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1603276138426" />
-    <state width="1877" height="352" key="GridCell.Tab.1.center" timestamp="1603276138426">
+    <state width="1877" height="352" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1603709241515" />
+    <state width="1877" height="352" key="GridCell.Tab.1.center" timestamp="1603709241515">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="352" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1603276138426" />
-    <state width="1877" height="352" key="GridCell.Tab.1.left" timestamp="1603276138426">
+    <state width="1877" height="352" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1603709241515" />
+    <state width="1877" height="352" key="GridCell.Tab.1.left" timestamp="1603709241515">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="352" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1603276138426" />
-    <state width="1877" height="352" key="GridCell.Tab.1.right" timestamp="1603276138426">
+    <state width="1877" height="352" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1603709241515" />
+    <state width="1877" height="352" key="GridCell.Tab.1.right" timestamp="1603709241515">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="352" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1603276138426" />
+    <state width="1877" height="352" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1603709241515" />
     <state x="620" y="239" key="GuiDesigner.FormSource.Dialog" timestamp="1602667599022">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -312,10 +327,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="461" y="169" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1603199893152" />
-    <state x="552" y="257" key="Vcs.Push.Dialog.v2" timestamp="1603276072146">
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2" timestamp="1603294630933">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1603276072146" />
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1603294630933" />
     <state x="92" y="92" width="1736" height="866" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1603275473920">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -332,10 +347,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="551" y="145" key="new project wizard/0.0.1920.1050@0.0.1920.1050" timestamp="1603197620704" />
-    <state x="756" y="272" key="refactoring.ChangeSignatureDialog" timestamp="1602233653595">
+    <state x="756" y="272" key="refactoring.ChangeSignatureDialog" timestamp="1603706908495">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="756" y="272" key="refactoring.ChangeSignatureDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1602233653595" />
+    <state x="756" y="272" key="refactoring.ChangeSignatureDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1603706908495" />
     <state x="616" y="243" key="run.anything.popup" timestamp="1602063451654">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -352,7 +367,27 @@
           <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="2" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Seph/WriteDb.java</url>
+          <line>182</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Seph/fereaRead.java</url>
+          <line>300</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Seph.fereaRead" memberName="lucrari" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="listLucr1" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

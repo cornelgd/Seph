@@ -35,7 +35,11 @@ public class Meniu {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-               new fereaRead();
+                try {
+                    new fereaRead();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
             }
 
         });
