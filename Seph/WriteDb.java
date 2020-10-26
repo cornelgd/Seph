@@ -78,7 +78,7 @@ public    List<lucrare> lucrariCuId = new ArrayList<>();
         Connection conn = this.conecteaza();
         String sql ="";
         if (id == 0){
-            sql = "SELECT nrcrt, id, client, material, laminare, dimx, dimy FROM Lucrare";
+            sql = "SELECT nrcrt, id, client, material, laminare, dimx, dimy FROM Lucrare ";
         } else {
             sql = "SELECT nrcrt, id, client, material, laminare, dimx, dimy FROM Lucrare WHERE id = ?";
         }

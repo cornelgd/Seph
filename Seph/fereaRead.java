@@ -46,18 +46,21 @@ public class fereaRead {
         frame.add(textField1);
 
 
-        JTextField textField2, textField3, textField4, textField5, textField6;
+        JTextField textField2, textField3, textField4, textField5, textField6, textField7, textField8;
         textField2 = new JTextField();
         textField3 = new JTextField();
         textField4 = new JTextField();
         textField5 = new JTextField();
         textField6 = new JTextField();
+        textField7 = new JTextField();
+        textField8 = new JTextField();
         textField2.setVisible(false);
         textField3.setVisible(false);
         textField4.setVisible(false);
         textField5.setVisible(false);
         textField6.setVisible(false);
-
+        textField7.setVisible(false);
+        textField8.setVisible(false);
 
         textField2.setBounds(460, 45, 100, 25);
         frame.add(textField2);
@@ -69,14 +72,19 @@ public class fereaRead {
         frame.add(textField5);
         textField6.setBounds(610, 150, 40, 25);
         frame.add(textField6);
+        textField7.setBounds(620, 45, 40, 25);
+        frame.add(textField7);
+        textField8.setBounds(710, 45, 40, 25);
+        frame.add(textField8);
 
-
-        JLabel etich1, etich2, etich3, etich4, etich5;
+        JLabel etich1, etich2, etich3, etich4, etich5,etich6,etich7;
         etich1 = new JLabel();
         etich2 = new JLabel();
         etich3 = new JLabel();
         etich4 = new JLabel();
         etich5 = new JLabel();
+        etich6 = new JLabel();
+        etich7 = new JLabel();
 
         etich1.setText("Client");
         etich1.setBounds(370, 45, 100, 25);
@@ -98,6 +106,15 @@ public class fereaRead {
         etich5.setBounds(520, 150, 100, 25);
         etich5.setVisible(false);
         frame.add(etich5);
+        etich6.setText("Nrcrt");
+        etich6.setBounds(580, 45, 100, 25);
+        etich6.setVisible(false);
+        frame.add(etich6);
+        etich7.setText("Id");
+        etich7.setBounds(690, 45, 100, 25);
+        etich7.setVisible(false);
+        frame.add(etich7);
+
 
 
         frame.setLocationRelativeTo(null);
@@ -171,15 +188,9 @@ public class fereaRead {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-
                     lucrari.remove(nrcrt);
                     lucrare lucrarecur = new lucrare( nrcrt, idcur, textField2.getText(), textField3.getText(), textField4.getText(),textField5.getText(), textField6.getText() );
-
-
                     lucrari.add(nrcrt, lucrarecur);
-
-
-
                     appI.update(nrcrt, idcur, textField2.getText(),  textField3.getText(),  textField4.getText(),  Integer.parseInt(textField5.getText()),  Integer.parseInt(textField6.getText()));
 
             }
@@ -198,16 +209,24 @@ public class fereaRead {
                     textField4.setVisible(true);
                     textField5.setVisible(true);
                     textField6.setVisible(true);
+                    textField7.setVisible(true);
+                    textField8.setVisible(true);
                     textField2.setText(fisiereSel.get(index).client);
                     textField3.setText(fisiereSel.get(index).material);
                     textField4.setText(fisiereSel.get(index).laminare);
                     textField5.setText(fisiereSel.get(index).dimx);
                     textField6.setText(fisiereSel.get(index).dimy);
+                    textField7.setText(String.valueOf(fisiereSel.get(index).nrcrt));
+                    textField8.setText(String.valueOf(fisiereSel.get(index).id));
+
+
                     etich1.setVisible(true);
                     etich2.setVisible(true);
                     etich3.setVisible(true);
                     etich4.setVisible(true);
                     etich5.setVisible(true);
+                    etich6.setVisible(true);
+                    etich7.setVisible(true);
                     buttonSave.setVisible(true);
 
                 }
