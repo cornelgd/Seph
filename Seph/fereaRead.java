@@ -5,6 +5,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -73,6 +75,7 @@ public class fereaRead {
         textField6.setBounds(610, 150, 40, 25);
         frame.add(textField6);
         textField7.setBounds(620, 45, 40, 25);
+        textField7.setEditable(false);
         frame.add(textField7);
         textField8.setBounds(710, 45, 40, 25);
         frame.add(textField8);
@@ -188,10 +191,13 @@ public class fereaRead {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                    lucrari.remove(nrcrt);
+                    /*lucrari.remove(nrcrt);
                     lucrare lucrarecur = new lucrare( nrcrt, idcur, textField2.getText(), textField3.getText(), textField4.getText(),textField5.getText(), textField6.getText() );
                     lucrari.add(nrcrt, lucrarecur);
-                    appI.update(nrcrt, idcur, textField2.getText(),  textField3.getText(),  textField4.getText(),  Integer.parseInt(textField5.getText()),  Integer.parseInt(textField6.getText()));
+      */
+                    appI.update(Integer.parseInt(textField7.getText()), Integer.parseInt(textField8.getText()), textField2.getText(),  textField3.getText(),  textField4.getText(),  Integer.parseInt(textField5.getText()),  Integer.parseInt(textField6.getText()));
+
+               
 
             }
         });

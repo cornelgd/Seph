@@ -49,6 +49,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="365" />
+    <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Seph/sqlite-jdbc-3.32.3.2.jar" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -232,7 +233,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603721861592</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="More updates">
+      <created>1603723969073</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1603723969073</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -261,7 +269,8 @@
     <MESSAGE value="more work" />
     <MESSAGE value="modified" />
     <MESSAGE value="Reading from db now works ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reading from db now works ok" />
+    <MESSAGE value="More updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="More updates" />
   </component>
   <component name="WindowStateProjectService">
     <state x="765" y="231" key="#com.intellij.ide.util.MemberChooser" timestamp="1602668516581">
@@ -300,38 +309,38 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="782" y="222" key="Github.UntrackedFilesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1601633913251" />
-    <state width="1877" height="268" key="GridCell.Tab.0.bottom" timestamp="1603723270118">
+    <state width="1877" height="268" key="GridCell.Tab.0.bottom" timestamp="1603789442244">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="268" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1603723270118" />
-    <state width="1877" height="268" key="GridCell.Tab.0.center" timestamp="1603723270118">
+    <state width="1877" height="268" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1603789442244" />
+    <state width="1877" height="268" key="GridCell.Tab.0.center" timestamp="1603789442244">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="268" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1603723270118" />
-    <state width="1877" height="268" key="GridCell.Tab.0.left" timestamp="1603723270118">
+    <state width="1877" height="268" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1603789442244" />
+    <state width="1877" height="268" key="GridCell.Tab.0.left" timestamp="1603789442244">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="268" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1603723270118" />
-    <state width="1877" height="268" key="GridCell.Tab.0.right" timestamp="1603723270118">
+    <state width="1877" height="268" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1603789442244" />
+    <state width="1877" height="268" key="GridCell.Tab.0.right" timestamp="1603789442244">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="268" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1603723270118" />
-    <state width="1877" height="352" key="GridCell.Tab.1.bottom" timestamp="1603720362039">
+    <state width="1877" height="268" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1603789442244" />
+    <state width="1877" height="352" key="GridCell.Tab.1.bottom" timestamp="1603787626994">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="352" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1603720362039" />
-    <state width="1877" height="352" key="GridCell.Tab.1.center" timestamp="1603720362039">
+    <state width="1877" height="352" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1603787626994" />
+    <state width="1877" height="352" key="GridCell.Tab.1.center" timestamp="1603787626994">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="352" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1603720362039" />
-    <state width="1877" height="352" key="GridCell.Tab.1.left" timestamp="1603720362039">
+    <state width="1877" height="352" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1603787626994" />
+    <state width="1877" height="352" key="GridCell.Tab.1.left" timestamp="1603787626994">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="352" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1603720362039" />
-    <state width="1877" height="352" key="GridCell.Tab.1.right" timestamp="1603720362039">
+    <state width="1877" height="352" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1603787626994" />
+    <state width="1877" height="352" key="GridCell.Tab.1.right" timestamp="1603787626994">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="352" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1603720362039" />
+    <state width="1877" height="352" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1603787626994" />
     <state x="620" y="239" key="GuiDesigner.FormSource.Dialog" timestamp="1602667599022">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -340,14 +349,18 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="461" y="169" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1603199893152" />
-    <state x="552" y="257" key="Vcs.Push.Dialog.v2" timestamp="1603721866478">
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2" timestamp="1603723971845">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1603721866478" />
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1603723971845" />
     <state x="92" y="92" width="1736" height="866" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1603275473920">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="92" y="92" width="1736" height="866" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1603275473920" />
+    <state x="731" y="338" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1603724466266">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="731" y="338" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1603724466266" />
     <state x="730" y="404" key="com.intellij.uiDesigner.propertyInspector.editors.string.StringEditorDialog" timestamp="1602146182286">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
