@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ferea {
     public int dbsize, nrcrt, id;
-    public JTextField textField1;
+    public JTextField textNumeFis;
 
 
     List<lucrare> lucrari = new ArrayList<>();
@@ -50,7 +50,7 @@ public class ferea {
 
         JFrame frame = new JFrame("Fisa lucrari");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.setSize(600,500);
+        frame.setSize(800,500);
 
 
         JButton buttonOpen=new JButton("Open");
@@ -68,9 +68,9 @@ public class ferea {
         buttonModify.setVisible(false);
 
 
-        textField1 = new JTextField();
-        textField1.setBounds(170,10,400,25);
-        frame.add(textField1);
+        textNumeFis = new JTextField();
+        textNumeFis.setBounds(170,10,400,25);
+        frame.add(textNumeFis);
 
         DefaultListModel listModel1 = new DefaultListModel<>();
 
@@ -139,18 +139,21 @@ public class ferea {
         frame.add(etichDimy);
 
 
-        textNrcrt.setBounds(620, 45, 40, 25);
+        textNrcrt.setBounds(440, 45, 40, 25);
+        textNrcrt.setVisible(false);
         textNrcrt.setEditable(false);
         frame.add(textNrcrt);
-        textId.setBounds(710, 45, 40, 25);
+        textId.setBounds(540, 45, 40, 25);
+        textId.setVisible(false);
+        textId.setEditable(false);
         frame.add(textId);
 
         etichNrcrt.setText("Nrcrt");
-        etichNrcrt.setBounds(580, 45, 100, 25);
+        etichNrcrt.setBounds(400, 45, 100, 25);
         etichNrcrt.setVisible(false);
         frame.add(etichNrcrt);
         etichId.setText("Id");
-        etichId.setBounds(690, 45, 100, 25);
+        etichId.setBounds(520, 45, 100, 25);
         etichId.setVisible(false);
         frame.add(etichId);
 
@@ -188,7 +191,6 @@ public class ferea {
                     nrcrt = dbsize+1+i;
 
                     nume[i] = files[i].getName();
-                    //   System.out.println(nume[i] );
                     try {
 
 
@@ -201,11 +203,8 @@ public class ferea {
                 }
 
 
-                textField1.setText(listModel1.toString().substring(1,listModel1.toString().length()-1));
-
-
-
-
+                textNumeFis.setText(listModel1.toString().substring(1,listModel1.toString().length()-1));
+                buttonOpen.setEnabled(false);
 
             }
 
@@ -225,7 +224,6 @@ public class ferea {
                 separat = fisierul.split("_");
                 if (separat.length != 4) {
                     JOptionPane.showMessageDialog(null, "Numar incorect de parametri! - "+ fisierul, "Message", JOptionPane.ERROR_MESSAGE);
-                    // return"";
                     System.exit(0);
                 }
 
@@ -244,7 +242,7 @@ public class ferea {
                     xx = Float.parseFloat(dimens[1]);
                 } catch (Exception e1) {
                     JOptionPane.showMessageDialog(null, "Dimensiunea nu este trecuta corect! - " + fisierul, "Message", JOptionPane.ERROR_MESSAGE);
-                    return "";//  System.exit(0);
+                    return "";
 
                 }
 
@@ -263,12 +261,7 @@ public class ferea {
 
 
         buttonModify.addActionListener(new ActionListener() {
-
-            //    appI.insert(id, textClient.getText(),  textMaterial.getText(),  textLaminare.getText(),  Integer.parseInt(textDimx.getText()),  Integer.parseInt(textDimy.getText()));
-
-
-
-            @Override
+   @Override
             public void actionPerformed(ActionEvent e) {
 
                 int index = list1.getSelectedIndex();
@@ -285,14 +278,6 @@ public class ferea {
 
 
                     lucrari.add(index, lucrarecur);
-
-
-                    // int nrcrt = WriteDb.dbsize();
-                   /* for (int i = 0; i < lucrari.size(); i++) {
-                       System.out.print(lucrari.get(i).nrcrt + " - "+ lucrari.get(i).id + " - "+ lucrari.get(i).client + " - "+ lucrari.get(i).material + " - "+ lucrari.get(i).laminare + " - "+ Integer.parseInt(lucrari.get(i).dimx) + " - "+ Integer.parseInt(lucrari.get(i).dimy)+ "\n");
-                    }*/
-
-                    //     appI.update(1, "Sephora", "kmx1", "lucioasa", 111, 222 );
 
 
 
@@ -333,22 +318,29 @@ buttonSave.setToolTipText("Already saved, if you want to modify \nopen from main
                     textLaminare.setVisible(true);
                     textDimx.setVisible(true);
                     textDimy.setVisible(true);
+                    textId.setVisible(true);
+                    textNrcrt.setVisible(true);
+
+
                     textClient.setText(lucrari.get(index).client);
                     textMaterial.setText(lucrari.get(index).material);
                     textLaminare.setText(lucrari.get(index).laminare);
                     textDimx.setText(lucrari.get(index).dimx);
                     textDimy.setText(lucrari.get(index).dimy);
+                    textNrcrt.setText(String.valueOf(lucrari.get(index).nrcrt));
+                    textId.setText(String.valueOf(lucrari.get(index).id));
+
 
                     etichClient.setVisible(true);
                     etichMaterial.setVisible(true);
                     etichLaminare.setVisible(true);
                     etichDimx.setVisible(true);
                     etichDimy.setVisible(true);
+                    etichNrcrt.setVisible(true);
+                    etichId.setVisible(true);
 
                     buttonModify.setVisible(true);
                     buttonSave.setVisible(true);
-
-
 
                 }
 
@@ -359,20 +351,5 @@ buttonSave.setToolTipText("Already saved, if you want to modify \nopen from main
 
     }
 
-    private void writeToFile(String listModel1) {
-       /* try {
-            FileWriter myDb = new FileWriter("jdbc:sqlite:c:\\Users\\Cc1\\IdeaProjects\\Seph\\Seph\\baza.db",true);
-            myDb.write( listModel1.toString().substring(1,listModel1.toString().length()-1)            +"\n");
-            myDb.close();
-            System.out.println("Successfully wrote to the file.");
-        } catch (IOException e1) {
-            System.out.println("An error occurred writing data.");
-        }*/
-
-
-
     }
-
-
-}
 

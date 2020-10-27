@@ -172,7 +172,7 @@ public class fereaRead {
             listaLucr.addElement(txtinlista);
             appR.lucrariCuId.clear();
             j++;
-            };
+            }
 
 
 
@@ -191,10 +191,7 @@ public class fereaRead {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                    /*lucrari.remove(nrcrt);
-                    lucrare lucrarecur = new lucrare( nrcrt, idcur, textClient.getText(), textMaterial.getText(), textLaminare.getText(),textDimx.getText(), textDimy.getText() );
-                    lucrari.add(nrcrt, lucrarecur);
-      */
+
                     appI.update(Integer.parseInt(textNrcrt.getText()), Integer.parseInt(textId.getText()), textClient.getText(),  textMaterial.getText(),  textLaminare.getText(),  Integer.parseInt(textDimx.getText()),  Integer.parseInt(textDimy.getText()));
 
                
