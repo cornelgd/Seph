@@ -1,10 +1,8 @@
 package Seph;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.sql.SQLException;
 
 public class Meniu {
@@ -17,17 +15,17 @@ public class Meniu {
 
 
 
-        JButton buttonNew=new JButton("Lucrare noua");
+        JButton buttonNew=new JButton("New order");
         buttonNew.setBounds(10,105,150,25);
         frameMeniu.add(buttonNew);
-      //  buttonNew.setVisible(true);
 
 
         JButton buttonOpen=new JButton("Open");
         buttonOpen.setBounds(10,10,150,25);
         frameMeniu.add(buttonOpen);
-      //  buttonOpen.setVisible(true);
         frameMeniu.setLayout(null);
+        frameMeniu.setLocationRelativeTo(null);
+
         frameMeniu.setVisible(true);
 
 

@@ -29,7 +29,7 @@ public class fereaRead {
     public fereaRead() throws SQLException {
 
         JFrame frame = new JFrame("Fisa lucrari");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setSize(900, 500);
 
 
@@ -48,75 +48,75 @@ public class fereaRead {
         frame.add(textField1);
 
 
-        JTextField textField2, textField3, textField4, textField5, textField6, textField7, textField8;
-        textField2 = new JTextField();
-        textField3 = new JTextField();
-        textField4 = new JTextField();
-        textField5 = new JTextField();
-        textField6 = new JTextField();
-        textField7 = new JTextField();
-        textField8 = new JTextField();
-        textField2.setVisible(false);
-        textField3.setVisible(false);
-        textField4.setVisible(false);
-        textField5.setVisible(false);
-        textField6.setVisible(false);
-        textField7.setVisible(false);
-        textField8.setVisible(false);
+        JTextField textClient, textMaterial, textLaminare, textDimx, textDimy, textNrcrt, textId;
+        textClient = new JTextField();
+        textMaterial = new JTextField();
+        textLaminare = new JTextField();
+        textDimx = new JTextField();
+        textDimy = new JTextField();
+        textNrcrt = new JTextField();
+        textId = new JTextField();
+        textClient.setVisible(false);
+        textMaterial.setVisible(false);
+        textLaminare.setVisible(false);
+        textDimx.setVisible(false);
+        textDimy.setVisible(false);
+        textNrcrt.setVisible(false);
+        textId.setVisible(false);
 
-        textField2.setBounds(460, 45, 100, 25);
-        frame.add(textField2);
-        textField3.setBounds(460, 80, 300, 25);
-        frame.add(textField3);
-        textField4.setBounds(460, 115, 300, 25);
-        frame.add(textField4);
-        textField5.setBounds(460, 150, 40, 25);
-        frame.add(textField5);
-        textField6.setBounds(610, 150, 40, 25);
-        frame.add(textField6);
-        textField7.setBounds(620, 45, 40, 25);
-        textField7.setEditable(false);
-        frame.add(textField7);
-        textField8.setBounds(710, 45, 40, 25);
-        frame.add(textField8);
+        textClient.setBounds(460, 45, 100, 25);
+        frame.add(textClient);
+        textMaterial.setBounds(460, 80, 300, 25);
+        frame.add(textMaterial);
+        textLaminare.setBounds(460, 115, 300, 25);
+        frame.add(textLaminare);
+        textDimx.setBounds(460, 150, 40, 25);
+        frame.add(textDimx);
+        textDimy.setBounds(610, 150, 40, 25);
+        frame.add(textDimy);
+        textNrcrt.setBounds(620, 45, 40, 25);
+        textNrcrt.setEditable(false);
+        frame.add(textNrcrt);
+        textId.setBounds(710, 45, 40, 25);
+        frame.add(textId);
 
-        JLabel etich1, etich2, etich3, etich4, etich5,etich6,etich7;
-        etich1 = new JLabel();
-        etich2 = new JLabel();
-        etich3 = new JLabel();
-        etich4 = new JLabel();
-        etich5 = new JLabel();
-        etich6 = new JLabel();
-        etich7 = new JLabel();
+        JLabel etichClient, etichMaterial, etichLaminare, etichX, etichY,etichNrcrt,etichId;
+        etichClient = new JLabel();
+        etichMaterial = new JLabel();
+        etichLaminare = new JLabel();
+        etichX = new JLabel();
+        etichY = new JLabel();
+        etichNrcrt = new JLabel();
+        etichId = new JLabel();
 
-        etich1.setText("Client");
-        etich1.setBounds(370, 45, 100, 25);
-        etich1.setVisible(false);
-        frame.add(etich1);
-        etich2.setText("Material");
-        etich2.setBounds(370, 80, 100, 25);
-        etich2.setVisible(false);
-        frame.add(etich2);
-        etich3.setText("Laminare");
-        etich3.setBounds(370, 115, 100, 25);
-        etich3.setVisible(false);
-        frame.add(etich3);
-        etich4.setText("Dimensiune H");
-        etich4.setBounds(370, 150, 100, 25);
-        etich4.setVisible(false);
-        frame.add(etich4);
-        etich5.setText("Dimensiune V");
-        etich5.setBounds(520, 150, 100, 25);
-        etich5.setVisible(false);
-        frame.add(etich5);
-        etich6.setText("Nrcrt");
-        etich6.setBounds(580, 45, 100, 25);
-        etich6.setVisible(false);
-        frame.add(etich6);
-        etich7.setText("Id");
-        etich7.setBounds(690, 45, 100, 25);
-        etich7.setVisible(false);
-        frame.add(etich7);
+        etichClient.setText("Client");
+        etichClient.setBounds(370, 45, 100, 25);
+        etichClient.setVisible(false);
+        frame.add(etichClient);
+        etichMaterial.setText("Material");
+        etichMaterial.setBounds(370, 80, 100, 25);
+        etichMaterial.setVisible(false);
+        frame.add(etichMaterial);
+        etichLaminare.setText("Laminare");
+        etichLaminare.setBounds(370, 115, 100, 25);
+        etichLaminare.setVisible(false);
+        frame.add(etichLaminare);
+        etichX.setText("Dimensiune H");
+        etichX.setBounds(370, 150, 100, 25);
+        etichX.setVisible(false);
+        frame.add(etichX);
+        etichY.setText("Dimensiune V");
+        etichY.setBounds(520, 150, 100, 25);
+        etichY.setVisible(false);
+        frame.add(etichY);
+        etichNrcrt.setText("Nrcrt");
+        etichNrcrt.setBounds(580, 45, 100, 25);
+        etichNrcrt.setVisible(false);
+        frame.add(etichNrcrt);
+        etichId.setText("Id");
+        etichId.setBounds(690, 45, 100, 25);
+        etichId.setVisible(false);
+        frame.add(etichId);
 
 
 
@@ -192,10 +192,10 @@ public class fereaRead {
             public void actionPerformed(ActionEvent e) {
 
                     /*lucrari.remove(nrcrt);
-                    lucrare lucrarecur = new lucrare( nrcrt, idcur, textField2.getText(), textField3.getText(), textField4.getText(),textField5.getText(), textField6.getText() );
+                    lucrare lucrarecur = new lucrare( nrcrt, idcur, textClient.getText(), textMaterial.getText(), textLaminare.getText(),textDimx.getText(), textDimy.getText() );
                     lucrari.add(nrcrt, lucrarecur);
       */
-                    appI.update(Integer.parseInt(textField7.getText()), Integer.parseInt(textField8.getText()), textField2.getText(),  textField3.getText(),  textField4.getText(),  Integer.parseInt(textField5.getText()),  Integer.parseInt(textField6.getText()));
+                    appI.update(Integer.parseInt(textNrcrt.getText()), Integer.parseInt(textId.getText()), textClient.getText(),  textMaterial.getText(),  textLaminare.getText(),  Integer.parseInt(textDimx.getText()),  Integer.parseInt(textDimy.getText()));
 
                
 
@@ -210,29 +210,29 @@ public class fereaRead {
                 list1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
                 if (evt.getClickCount() > 0) {
                     int index = list1.getSelectedIndex();
-                    textField2.setVisible(true);
-                    textField3.setVisible(true);
-                    textField4.setVisible(true);
-                    textField5.setVisible(true);
-                    textField6.setVisible(true);
-                    textField7.setVisible(true);
-                    textField8.setVisible(true);
-                    textField2.setText(fisiereSel.get(index).client);
-                    textField3.setText(fisiereSel.get(index).material);
-                    textField4.setText(fisiereSel.get(index).laminare);
-                    textField5.setText(fisiereSel.get(index).dimx);
-                    textField6.setText(fisiereSel.get(index).dimy);
-                    textField7.setText(String.valueOf(fisiereSel.get(index).nrcrt));
-                    textField8.setText(String.valueOf(fisiereSel.get(index).id));
+                    textClient.setVisible(true);
+                    textMaterial.setVisible(true);
+                    textLaminare.setVisible(true);
+                    textDimx.setVisible(true);
+                    textDimy.setVisible(true);
+                    textNrcrt.setVisible(true);
+                    textId.setVisible(true);
+                    textClient.setText(fisiereSel.get(index).client);
+                    textMaterial.setText(fisiereSel.get(index).material);
+                    textLaminare.setText(fisiereSel.get(index).laminare);
+                    textDimx.setText(fisiereSel.get(index).dimx);
+                    textDimy.setText(fisiereSel.get(index).dimy);
+                    textNrcrt.setText(String.valueOf(fisiereSel.get(index).nrcrt));
+                    textId.setText(String.valueOf(fisiereSel.get(index).id));
 
 
-                    etich1.setVisible(true);
-                    etich2.setVisible(true);
-                    etich3.setVisible(true);
-                    etich4.setVisible(true);
-                    etich5.setVisible(true);
-                    etich6.setVisible(true);
-                    etich7.setVisible(true);
+                    etichClient.setVisible(true);
+                    etichMaterial.setVisible(true);
+                    etichLaminare.setVisible(true);
+                    etichX.setVisible(true);
+                    etichY.setVisible(true);
+                    etichNrcrt.setVisible(true);
+                    etichId.setVisible(true);
                     buttonSave.setVisible(true);
 
                 }

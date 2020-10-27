@@ -11,7 +11,7 @@ public  class WriteDb {
 
     public static int howmany, howmany1 ;
     public static int isLastId;
-   // public int isLast2;
+    public int lastID;
 
     private  Connection conecteaza() {
         // SQLite connection string
@@ -28,9 +28,9 @@ public  class WriteDb {
 
 
 
-    public  void insert(int nrcrt, int id, String client, String material, String laminare, int dimx, int dimy ) {
-        String sql = "INSERT INTO Lucrare(id,client,material,laminare,dimx,dimy) VALUES(?,?,?,?,?,?)";
-
+    public  void insert(int nrcrt, int id, String client, String material, String laminare, int dimx, int dimy ) throws SQLException {
+        String sql = "INSERT INTO Lucrare(nrcrt,id,client,material,laminare,dimx,dimy) VALUES(?,?,?,?,?,?,?)";
+//int nrcrt = dbsize()+1;
         try (Connection conn = this.conecteaza();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, nrcrt);
@@ -158,6 +158,23 @@ public    List<lucrare> lucrariCuId = new ArrayList<>();
                 return fisiere;
     }
 
+
+    public int lastID() throws SQLException {
+        Connection conn = this.conecteaza();
+        String sql ="select id from Lucrare";
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        ResultSet rs = pstmt.executeQuery();
+
+        do {
+
+             lastID = rs.getInt("id");
+
+        } while (rs.next());
+
+
+        conn.close();
+        return lastID;
+    }
 
 
 
