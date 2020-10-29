@@ -80,7 +80,7 @@ public class ferea {
         frame.add(list1);
 
 
-        JTextField textClient,textMaterial,textLaminare,textDimx,textDimy,textNrcrt,textId;
+        JTextField textClient,textMaterial,textLaminare,textDimx,textDimy,textNrcrt,textId, textFisier;
         textClient = new JTextField();
         textMaterial = new JTextField();
         textLaminare = new JTextField();
@@ -88,14 +88,17 @@ public class ferea {
         textDimy = new JTextField();
         textNrcrt = new JTextField();
         textId = new JTextField();
+        textFisier = new JTextField();
 
         textClient.setVisible(false);
         textMaterial.setVisible(false);
         textLaminare.setVisible(false);
         textDimx.setVisible(false);
         textDimy.setVisible(false);
-
-
+        textFisier.setVisible(false);
+        textFisier.setBounds(260, 185, 300, 25);
+        textFisier.setEditable(false);
+        frame.add(textFisier);
         textClient.setBounds(260,45,100,25);
         frame.add(textClient);
         textMaterial.setBounds(260,80,300,25);
@@ -108,7 +111,7 @@ public class ferea {
         frame.add(textDimy);
 
 
-        JLabel etichClient,etichMaterial,etichLaminare,etichDimx,etichDimy,etichNrcrt,etichId;
+        JLabel etichClient,etichMaterial,etichLaminare,etichDimx,etichDimy,etichNrcrt,etichId, etichFis;
         etichClient = new JLabel();
         etichMaterial = new JLabel();
         etichLaminare = new JLabel();
@@ -116,6 +119,7 @@ public class ferea {
         etichDimy = new JLabel();
         etichId = new JLabel();
         etichNrcrt = new JLabel();
+        etichFis = new JLabel();
 
         etichClient.setText("Client");
         etichClient.setBounds(170,45,100,25);
@@ -137,6 +141,10 @@ public class ferea {
         etichDimy.setBounds(320,150,100,25);
         etichDimy.setVisible(false);
         frame.add(etichDimy);
+        etichFis.setText("Fisier");
+        etichFis.setBounds(170,185,100,25);
+        etichFis.setVisible(false);
+        frame.add(etichFis);
 
 
         textNrcrt.setBounds(440, 45, 40, 25);
@@ -157,12 +165,9 @@ public class ferea {
         etichId.setVisible(false);
         frame.add(etichId);
 
-
-
         frame.setLocationRelativeTo(null);
         frame.setLayout(null);
         frame.setVisible(true);
-
 
 
         buttonOpen.addActionListener(new ActionListener() {
@@ -191,6 +196,7 @@ public class ferea {
                     nrcrt = dbsize+1+i;
 
                     nume[i] = files[i].getName();
+                    // System.out.println(nume[i]);
                     try {
 
 
@@ -249,7 +255,7 @@ public class ferea {
 
 
 
-                lucrare lucrarecur = new lucrare( nrcrt, id, separat[0], mat(separat[1]), lam(separat[2]),dimens[0], dimens[1] );
+                lucrare lucrarecur = new lucrare( nrcrt, id, separat[0], mat(separat[1]), lam(separat[2]),dimens[0], dimens[1], fisierul);
                 lucrari.add(lucrarecur);
 
 
@@ -261,20 +267,22 @@ public class ferea {
 
 
         buttonModify.addActionListener(new ActionListener() {
-   @Override
+            @Override
             public void actionPerformed(ActionEvent e) {
 
                 int index = list1.getSelectedIndex();
                 if (index != -1)
                 {
                     nrcrt = lucrari.get(index).nrcrt;
+                    String fisierCur = lucrari.get(index).numeFisier;
+
                     lucrari.remove(index);
                     String client = textClient.getText();
                     String material = textMaterial.getText();
                     String laminare = textLaminare.getText();
                     String dimx = textDimx.getText();
                     String dimy = textDimy.getText();
-                    lucrare lucrarecur = new lucrare( nrcrt, id, client, material, laminare,dimx, dimy );
+                    lucrare lucrarecur = new lucrare( nrcrt, id, client, material, laminare,dimx, dimy, fisierCur);
 
 
                     lucrari.add(index, lucrarecur);
@@ -294,13 +302,13 @@ public class ferea {
                 WriteDb appI = new WriteDb();
                 try {
                     for (int i = 0; i < lucrari.size(); i++) {
-                        appI.insert(lucrari.get(i).nrcrt, lucrari.get(i).id, lucrari.get(i).client, lucrari.get(i).material, lucrari.get(i).laminare, Integer.parseInt(lucrari.get(i).dimx), Integer.parseInt(lucrari.get(i).dimy));
+                        appI.insert(lucrari.get(i).nrcrt, lucrari.get(i).id, lucrari.get(i).client, lucrari.get(i).material, lucrari.get(i).laminare, Integer.parseInt(lucrari.get(i).dimx), Integer.parseInt(lucrari.get(i).dimy), lucrari.get(i).numeFisier);
                     }
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();
                 }
-            buttonSave.setEnabled(false);
-buttonSave.setToolTipText("Already saved, if you want to modify \nopen from main menu");
+                buttonSave.setEnabled(false);
+                buttonSave.setToolTipText("Already saved, if you want to modify, open from main menu");
             }
         });
 
@@ -310,8 +318,7 @@ buttonSave.setToolTipText("Already saved, if you want to modify \nopen from main
                 JList list1 = (JList)evt.getSource();
                 list1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
                 if (evt.getClickCount() > 0) {
-                    int index = list1.locationToIndex(evt.getPoint());
-
+                    int index = list1.getSelectedIndex();
 
                     textClient.setVisible(true);
                     textMaterial.setVisible(true);
@@ -320,6 +327,7 @@ buttonSave.setToolTipText("Already saved, if you want to modify \nopen from main
                     textDimy.setVisible(true);
                     textId.setVisible(true);
                     textNrcrt.setVisible(true);
+                    textFisier.setVisible(true);
 
 
                     textClient.setText(lucrari.get(index).client);
@@ -329,6 +337,7 @@ buttonSave.setToolTipText("Already saved, if you want to modify \nopen from main
                     textDimy.setText(lucrari.get(index).dimy);
                     textNrcrt.setText(String.valueOf(lucrari.get(index).nrcrt));
                     textId.setText(String.valueOf(lucrari.get(index).id));
+                    textFisier.setText(lucrari.get(index).numeFisier);
 
 
                     etichClient.setVisible(true);
@@ -338,6 +347,7 @@ buttonSave.setToolTipText("Already saved, if you want to modify \nopen from main
                     etichDimy.setVisible(true);
                     etichNrcrt.setVisible(true);
                     etichId.setVisible(true);
+                    etichFis.setVisible(true);
 
                     buttonModify.setVisible(true);
                     buttonSave.setVisible(true);
@@ -351,5 +361,5 @@ buttonSave.setToolTipText("Already saved, if you want to modify \nopen from main
 
     }
 
-    }
+}
 

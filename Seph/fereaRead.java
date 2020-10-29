@@ -5,8 +5,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,14 +12,7 @@ import java.util.List;
 public class fereaRead {
 
     public JTextField textField1;
-
-    List<lucrare> lucrari = new ArrayList<>();
-
-    public static String[] separat;
-    public static String[] rezultat;
-    public static float xx;
     public List<Integer> indexFis = new ArrayList<>();
-    public int nrcrt, idcur;
     public  int index1 = 0;
 
     public  List<lucrare> fisiereSel = new ArrayList<>();
@@ -33,22 +24,13 @@ public class fereaRead {
         frame.setSize(900, 500);
 
 
-        JButton button1 = new JButton("Open");
-        button1.setBounds(10, 10, 150, 25);
-        frame.add(button1);
-
         JButton buttonSave = new JButton("Save modifications");
         buttonSave.setBounds(400, 405, 150, 25);
         frame.add(buttonSave);
         buttonSave.setVisible(false);
 
 
-        textField1 = new JTextField();
-        textField1.setBounds(170, 10, 400, 25);
-        frame.add(textField1);
-
-
-        JTextField textClient, textMaterial, textLaminare, textDimx, textDimy, textNrcrt, textId;
+        JTextField textClient, textMaterial, textLaminare, textDimx, textDimy, textNrcrt, textId, textFisier;
         textClient = new JTextField();
         textMaterial = new JTextField();
         textLaminare = new JTextField();
@@ -56,6 +38,7 @@ public class fereaRead {
         textDimy = new JTextField();
         textNrcrt = new JTextField();
         textId = new JTextField();
+        textFisier = new JTextField();
         textClient.setVisible(false);
         textMaterial.setVisible(false);
         textLaminare.setVisible(false);
@@ -63,6 +46,10 @@ public class fereaRead {
         textDimy.setVisible(false);
         textNrcrt.setVisible(false);
         textId.setVisible(false);
+        textId.setEditable(false);
+        textFisier.setVisible(false);
+        textFisier.setEditable(false);
+
 
         textClient.setBounds(460, 45, 100, 25);
         frame.add(textClient);
@@ -79,8 +66,10 @@ public class fereaRead {
         frame.add(textNrcrt);
         textId.setBounds(710, 45, 40, 25);
         frame.add(textId);
+        textFisier.setBounds(460, 185, 300, 25);
+        frame.add(textFisier);
 
-        JLabel etichClient, etichMaterial, etichLaminare, etichX, etichY,etichNrcrt,etichId;
+        JLabel etichClient, etichMaterial, etichLaminare, etichX, etichY,etichNrcrt,etichId,etichFis;
         etichClient = new JLabel();
         etichMaterial = new JLabel();
         etichLaminare = new JLabel();
@@ -88,6 +77,7 @@ public class fereaRead {
         etichY = new JLabel();
         etichNrcrt = new JLabel();
         etichId = new JLabel();
+        etichFis = new JLabel();
 
         etichClient.setText("Client");
         etichClient.setBounds(370, 45, 100, 25);
@@ -117,7 +107,10 @@ public class fereaRead {
         etichId.setBounds(690, 45, 100, 25);
         etichId.setVisible(false);
         frame.add(etichId);
-
+        etichFis.setText("Fisier");
+        etichFis.setBounds(370, 185, 100, 25);
+        etichFis.setVisible(false);
+        frame.add(etichFis);
 
 
         frame.setLocationRelativeTo(null);
@@ -125,12 +118,16 @@ public class fereaRead {
         frame.setVisible(true);
 
 
+        JScrollPane scrollFis = new JScrollPane();
+        scrollFis.setBounds(200, 45, 150, 250);
         DefaultListModel listaFis = new DefaultListModel<>();
         JList listFis1 = new JList<>(listaFis);
         listFis1.setBounds(200, 45, 150, 250);
         listFis1.setOpaque(true);
         listFis1.setVisible(true);
         frame.add(listFis1);
+        scrollFis.setViewportView(listFis1);
+        frame.add(scrollFis);
 
 
 
@@ -140,14 +137,19 @@ public class fereaRead {
 
 
 
-
-
+        JScrollPane scrollLucr = new JScrollPane();
+        scrollLucr.setBounds(10, 45, 150, 250);
         DefaultListModel listaLucr = new DefaultListModel<>();
         JList listLucr1 = new JList<>(listaLucr);
         listLucr1.setBounds(10, 45, 150, 250);
         listLucr1.setOpaque(true);
+
         listLucr1.setVisible(true);
-        frame.add(listLucr1);
+        scrollLucr.setViewportView(listLucr1);
+        frame.add(scrollLucr);
+
+
+
 
         WriteDb appS = new WriteDb();
         int dbsize = appS.dbsize();//
@@ -156,45 +158,39 @@ public class fereaRead {
         int [] arrayId = new int [dbsize+1];
 
         int j  = 0;
+
         for ( int i=1;i<dbsize;i++)
         {
 
-            appR.read(i);  //read first
-
-            if (WriteDb.isLastId == 1) //then if no elements returned
+            appR.read(i);
+            if (WriteDb.isLastId == 1)
             {
-                break;
+                j++;
+
+            } else {
+
+                arrayId[j] = appR.lucrariCuId.get(0).id;
+                String txtinlista = arrayId[j] + " - " + appR.lucrariCuId.get(0).client;
+                listaLucr.addElement(txtinlista);
+                appR.lucrariCuId.clear();
+                j++;
             }
-
-           arrayId[j] = appR.lucrariCuId.get(0).id;
-            String txtinlista = arrayId[j] + " - " +appR.lucrariCuId.get(0).client;
-
-            listaLucr.addElement(txtinlista);
-            appR.lucrariCuId.clear();
-            j++;
-            }
+        }
 
 
-
-
-
-
-
-
-
-
-
-
-       buttonSave.addActionListener(new ActionListener() {
+        buttonSave.addActionListener(new ActionListener() {
             WriteDb appI = new WriteDb();
 
             @Override
             public void actionPerformed(ActionEvent e) {
 
 
-                    appI.update(Integer.parseInt(textNrcrt.getText()), Integer.parseInt(textId.getText()), textClient.getText(),  textMaterial.getText(),  textLaminare.getText(),  Integer.parseInt(textDimx.getText()),  Integer.parseInt(textDimy.getText()));
 
-               
+                appI.update(Integer.parseInt(textNrcrt.getText()), Integer.parseInt(textId.getText()), textClient.getText(),
+                        textMaterial.getText(),  textLaminare.getText(),  Integer.parseInt(textDimx.getText()),
+                        Integer.parseInt(textDimy.getText()), textFisier.getText());
+
+
 
             }
         });
@@ -214,6 +210,7 @@ public class fereaRead {
                     textDimy.setVisible(true);
                     textNrcrt.setVisible(true);
                     textId.setVisible(true);
+                    textFisier.setVisible(true);
                     textClient.setText(fisiereSel.get(index).client);
                     textMaterial.setText(fisiereSel.get(index).material);
                     textLaminare.setText(fisiereSel.get(index).laminare);
@@ -221,7 +218,7 @@ public class fereaRead {
                     textDimy.setText(fisiereSel.get(index).dimy);
                     textNrcrt.setText(String.valueOf(fisiereSel.get(index).nrcrt));
                     textId.setText(String.valueOf(fisiereSel.get(index).id));
-
+                    textFisier.setText(fisiereSel.get(index).numeFisier);
 
                     etichClient.setVisible(true);
                     etichMaterial.setVisible(true);
@@ -230,6 +227,9 @@ public class fereaRead {
                     etichY.setVisible(true);
                     etichNrcrt.setVisible(true);
                     etichId.setVisible(true);
+                    etichFis.setVisible(true);
+
+
                     buttonSave.setVisible(true);
 
                 }
@@ -245,7 +245,7 @@ public class fereaRead {
                 list2.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
                 if (evt.getClickCount() > 0) {
                     fisiereSel.clear();
-                  index1 = arrayId[list2.getSelectedIndex()];
+                    index1 = arrayId[list2.getSelectedIndex()];
                     int nrFis = 0;
 
                     WriteDb fisS = new WriteDb();
@@ -265,12 +265,12 @@ public class fereaRead {
                             appRf.readfis(index1);
                         } catch (SQLException throwables) {
                             throwables.printStackTrace();
-                        } //read first
+                        }
 
                         arrayId1[jk] = appRf.fisiere.get(i+1).id;
-                        String txtinlista1 = arrayId1[jk] + " - " + appRf.fisiere.get(i+1).client;
+                        //String txtinlista1 = arrayId1[jk] + " - " + appRf.fisiere.get(i+1).client;
 
-                        listaFis.addElement(txtinlista1);
+                        listaFis.addElement( appRf.fisiere.get(i+1).numeFisier);
 
                         fisiereSel.add(new lucrare(
                                 appRf.fisiere.get(i+1).nrcrt,
@@ -279,7 +279,9 @@ public class fereaRead {
                                 appRf.fisiere.get(i+1).material,
                                 appRf.fisiere.get(i+1).laminare,
                                 appRf.fisiere.get(i+1).dimx,
-                                appRf.fisiere.get(i+1).dimy));
+                                appRf.fisiere.get(i+1).dimy,
+                                appRf.fisiere.get(i+1).numeFisier
+                        ));
 
 
                         appRf.fisiere.clear();

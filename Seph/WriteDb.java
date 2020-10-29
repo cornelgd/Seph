@@ -22,15 +22,13 @@ public  class WriteDb {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-                   return conn;
-        }
- //   }
+        return conn;
+    }
 
 
 
-    public  void insert(int nrcrt, int id, String client, String material, String laminare, int dimx, int dimy ) throws SQLException {
-        String sql = "INSERT INTO Lucrare(nrcrt,id,client,material,laminare,dimx,dimy) VALUES(?,?,?,?,?,?,?)";
-//int nrcrt = dbsize()+1;
+    public  void insert(int nrcrt, int id, String client, String material, String laminare, int dimx, int dimy, String fisier ) throws SQLException {
+        String sql = "INSERT INTO Lucrare(nrcrt,id,client,material,laminare,dimx,dimy,fisier) VALUES(?,?,?,?,?,?,?,?)";
         try (Connection conn = this.conecteaza();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, nrcrt);
@@ -40,7 +38,7 @@ public  class WriteDb {
             pstmt.setString(5, laminare);
             pstmt.setInt(6, dimx);
             pstmt.setInt(7, dimy);
-
+            pstmt.setString(8, fisier);
             pstmt.executeUpdate();
 
         } catch (SQLException e) {
@@ -48,20 +46,20 @@ public  class WriteDb {
         }
     }
 
-    public  void update(int nrcrt, int id, String client, String material, String laminare, int dimx, int dimy)
+    public  void update(int nrcrt, int id, String client, String material, String laminare, int dimx, int dimy, String fisier)
     {
-        String sql = "UPDATE Lucrare  SET id = ? , client = ? , material = ? , laminare = ? , dimx = ? , dimy = ? WHERE nrcrt = ?";
+        String sql = "UPDATE Lucrare  SET id = ? , client = ? , material = ? , laminare = ? , dimx = ? , dimy = ?, fisier = ? WHERE nrcrt = ?";
 
         try (Connection conn = this.conecteaza();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-           pstmt.setInt(7, nrcrt); //? oare
+            pstmt.setInt(8, nrcrt); //? oare
             pstmt.setInt(1, id);
             pstmt.setString(2, client);
             pstmt.setString(3, material);
             pstmt.setString(4, laminare);
             pstmt.setInt(5, dimx);
             pstmt.setInt(6, dimy);
-
+            pstmt.setString(7, fisier);
             pstmt.executeUpdate();
 
         } catch (SQLException e) {
@@ -70,17 +68,17 @@ public  class WriteDb {
     }
 
 
-public    List<lucrare> lucrariCuId = new ArrayList<>();
+    public    List<lucrare> lucrariCuId = new ArrayList<>();
 
-    public List<lucrare> read(int id) throws SQLException { //, String client, String material, String laminare, int dimx, int dimy) {
+    public List<lucrare> read(int id) throws SQLException {
         isLastId = 0;
         howmany = 0;
         Connection conn = this.conecteaza();
         String sql ="";
         if (id == 0){
-            sql = "SELECT nrcrt, id, client, material, laminare, dimx, dimy FROM Lucrare ";
+            sql = "SELECT nrcrt, id, client, material, laminare, dimx, dimy, fisier FROM Lucrare ";
         } else {
-            sql = "SELECT nrcrt, id, client, material, laminare, dimx, dimy FROM Lucrare WHERE id = ?";
+            sql = "SELECT nrcrt, id, client, material, laminare, dimx, dimy, fisier FROM Lucrare WHERE id = ?";
         }
         PreparedStatement pstmt = conn.prepareStatement(sql);
         if (id != 0){
@@ -93,16 +91,14 @@ public    List<lucrare> lucrariCuId = new ArrayList<>();
 
         )
         {
-
-
             if (!rs.next() ){
-                    isLastId = 1;
+                isLastId = 1;
             }
             else
-                {
+            {
 
                 do {
-                   isLastId = 0;
+                    isLastId = 0;
                     howmany++;
                     lucrariCuId.add(new lucrare(
                             rs.getInt("nrcrt"),
@@ -111,7 +107,8 @@ public    List<lucrare> lucrariCuId = new ArrayList<>();
                             rs.getString("material"),
                             rs.getString("laminare"),
                             Integer.toString(rs.getInt("dimx")),
-                            Integer.toString(rs.getInt("dimy"))));
+                            Integer.toString(rs.getInt("dimy")),
+                            rs.getString("fisier")));
 
                 } while (rs.next());
             }
@@ -126,7 +123,7 @@ public    List<lucrare> lucrariCuId = new ArrayList<>();
         howmany1 = 0;
 
         Connection conn = this.conecteaza();
-        String sql = "SELECT nrcrt, id, client, material, laminare, dimx, dimy FROM Lucrare WHERE id = ?";
+        String sql = "SELECT nrcrt, id, client, material, laminare, dimx, dimy, fisier FROM Lucrare WHERE id = ?";
 
         PreparedStatement pstmt = conn.prepareStatement(sql);
         if (id != 0){
@@ -140,22 +137,21 @@ public    List<lucrare> lucrariCuId = new ArrayList<>();
         )
         {
 
-
-
-                do {
-                    howmany1++;
-                    fisiere.add(new lucrare(
-                            rs.getInt("nrcrt"),
-                            rs.getInt("id"),
-                            rs.getString("client"),
-                            rs.getString("material"),
-                            rs.getString("laminare"),
-                            Integer.toString(rs.getInt("dimx")),
-                            Integer.toString(rs.getInt("dimy"))));
-                } while (rs.next());
-            }
+            do {
+                howmany1++;
+                fisiere.add(new lucrare(
+                        rs.getInt("nrcrt"),
+                        rs.getInt("id"),
+                        rs.getString("client"),
+                        rs.getString("material"),
+                        rs.getString("laminare"),
+                        Integer.toString(rs.getInt("dimx")),
+                        Integer.toString(rs.getInt("dimy")),
+                        rs.getString("fisier")));
+            } while (rs.next());
+        }
         conn.close();
-                return fisiere;
+        return fisiere;
     }
 
 
@@ -167,7 +163,7 @@ public    List<lucrare> lucrariCuId = new ArrayList<>();
 
         do {
 
-             lastID = rs.getInt("id");
+            lastID = rs.getInt("id");
 
         } while (rs.next());
 
@@ -183,10 +179,10 @@ public    List<lucrare> lucrariCuId = new ArrayList<>();
         Connection conn = this.conecteaza();
         String sql ="select count(*) from Lucrare";
         PreparedStatement pstmt = conn.prepareStatement(sql);
-                ResultSet rs = pstmt.executeQuery();
-                int dbsize = rs.getInt("count(*)");
+        ResultSet rs = pstmt.executeQuery();
+        int dbsize = rs.getInt("count(*)");
         conn.close();
-                return dbsize;
+        return dbsize;
     }
 
     public int fissize(int id) throws SQLException {
@@ -203,9 +199,6 @@ public    List<lucrare> lucrariCuId = new ArrayList<>();
 
 
     public  void main(String[] args) {
-
-
-
 
     }
 }
