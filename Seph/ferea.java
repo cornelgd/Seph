@@ -73,11 +73,15 @@ public class ferea {
         frame.add(textNumeFis);
 
         DefaultListModel listModel1 = new DefaultListModel<>();
-
         JList list1 = new JList<>(listModel1);
         list1.setBounds(10,45, 150,250);
         list1.setOpaque(false);
         frame.add(list1);
+        JScrollPane scrollLucr = new JScrollPane();
+        scrollLucr.setBounds(10, 45, 150, 250);
+        scrollLucr.setViewportView(list1);
+        scrollLucr.setVisible(false);
+        frame.add(scrollLucr);
 
 
         JTextField textClient,textMaterial,textLaminare,textDimx,textDimy,textNrcrt,textId, textFisier;
@@ -151,7 +155,7 @@ public class ferea {
         textNrcrt.setVisible(false);
         textNrcrt.setEditable(false);
         frame.add(textNrcrt);
-        textId.setBounds(540, 45, 40, 25);
+        textId.setBounds(528, 45, 40, 25);
         textId.setVisible(false);
         textId.setEditable(false);
         frame.add(textId);
@@ -161,7 +165,7 @@ public class ferea {
         etichNrcrt.setVisible(false);
         frame.add(etichNrcrt);
         etichId.setText("Id");
-        etichId.setBounds(520, 45, 100, 25);
+        etichId.setBounds(508, 45, 100, 25);
         etichId.setVisible(false);
         frame.add(etichId);
 
@@ -211,6 +215,8 @@ public class ferea {
 
                 textNumeFis.setText(listModel1.toString().substring(1,listModel1.toString().length()-1));
                 buttonOpen.setEnabled(false);
+                scrollLucr.setVisible(true);
+
 
             }
 
@@ -338,6 +344,7 @@ public class ferea {
                     textNrcrt.setText(String.valueOf(lucrari.get(index).nrcrt));
                     textId.setText(String.valueOf(lucrari.get(index).id));
                     textFisier.setText(lucrari.get(index).numeFisier);
+
 
 
                     etichClient.setVisible(true);
