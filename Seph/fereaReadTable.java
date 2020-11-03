@@ -1,6 +1,12 @@
 package Seph;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -9,19 +15,110 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class fereaRead {
+public class fereaReadTable {
 
-    public JTextField textField1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public List<Integer> indexFis = new ArrayList<>();
-    public  int index1 = 0;
+    public  int rowSelectat = 0;
+   public String[] columnNames
+            = {"ID","Client"};
 
     public  List<lucrare> fisiereSel = new ArrayList<>();
 
-    public fereaRead() throws SQLException {
-
+    public fereaReadTable() throws SQLException {
         JFrame frame = new JFrame("Fisa lucrari");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setSize(900, 500);
+
+
+
+
+
+
+
+
+
+         DefaultTableModel model = new DefaultTableModel(){@Override
+         public boolean isCellEditable(int row, int column) {
+             //all cells false
+             return false;
+         }
+         };
+
+        model.addColumn("ID");
+        model.addColumn("Client");
+
+          JTable tabelaLucrari = new JTable(model);
+        JScrollPane scrollLucr = new JScrollPane(tabelaLucrari);
+        tabelaLucrari.getColumnModel().getColumn(0).setPreferredWidth(50);
+        tabelaLucrari.getColumnModel().getColumn(1).setPreferredWidth(120);
+         TableRowSorter<TableModel> rowSorter = new TableRowSorter<>(tabelaLucrari.getModel());
+
+         JTextField jtfFilter = new JTextField();
+         jtfFilter.setBounds(10, 380, 150, 25);
+         jtfFilter.setVisible(true);
+
+        frame.add(new JLabel("Specify a word to match:"),
+                BorderLayout.WEST);
+        frame.add(jtfFilter);
+
+
+        scrollLucr.setBounds(10, 45, 150, 250);
+        tabelaLucrari.setBounds(10, 45, 150, 250);
+        tabelaLucrari.setOpaque(true);
+        tabelaLucrari.setVisible(true);
+        frame.add(tabelaLucrari);
+        tabelaLucrari.setAutoCreateRowSorter(true);
+        scrollLucr.setViewportView(tabelaLucrari);
+        scrollLucr.setVisible(true);
+        frame.add(scrollLucr);
+
+
+        tabelaLucrari.setRowSorter(rowSorter);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         JButton buttonSave = new JButton("Save modifications");
@@ -137,59 +234,23 @@ public class fereaRead {
 
 
 
-        JScrollPane scrollLucr = new JScrollPane();
-        scrollLucr.setBounds(10, 45, 150, 250);
-        DefaultListModel listaLucr = new DefaultListModel<>();
-        JList listLucr1 = new JList<>(listaLucr);
-        listLucr1.setBounds(10, 45, 150, 250);
-        listLucr1.setOpaque(true);
-
-        listLucr1.setVisible(true);
-        scrollLucr.setViewportView(listLucr1);
-        frame.add(scrollLucr);
-
-
-
 
         WriteDb appS = new WriteDb();
         int dbsize = appS.dbsize();//
 
         WriteDb appR = new WriteDb();
-        int [] arrayId = new int [dbsize+1];
 
-        int j  = 0;
-        /*for ( int i=(dbsize-1);i>0;i--)
-        {
-
-            appR.read(i);
-            if (WriteDb.isLastId == 1)
-            {
-                j++;
-
-            } else {
-
-                arrayId[j] = appR.lucrariCuId.get(0).id;
-                String txtinlista = arrayId[j] + " - " + appR.lucrariCuId.get(0).client;
-                listaLucr.addElement(txtinlista);
-                appR.lucrariCuId.clear();
-                j++;
-            }
-        }*/
         for ( int i=1;i<dbsize;i++)
         {
 
             appR.read(i);
             if (WriteDb.isLastId == 1)
             {
-                j++;
+
 
             } else {
-
-                arrayId[j] = appR.lucrariCuId.get(0).id;
-                String txtinlista = arrayId[j] + " - " + appR.lucrariCuId.get(0).client;
-                listaLucr.addElement(txtinlista);
-                appR.lucrariCuId.clear();
-                j++;
+                model.addRow(new Object[]{appR.lucrariCuId.get(0).id, appR.lucrariCuId.get(0).client});
+                              appR.lucrariCuId.clear();
             }
         }
 
@@ -253,39 +314,37 @@ public class fereaRead {
             }
         });
 
-        listLucr1.addMouseListener(new MouseAdapter() {
+        tabelaLucrari.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent evt) {
+
+
                 indexFis.clear();
                 listaFis.removeAllElements();
-                JList list2 = (JList)evt.getSource();
-                list2.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-                if (evt.getClickCount() > 0) {
-                    fisiereSel.clear();
-                    index1 = arrayId[list2.getSelectedIndex()];
-                  //  System.out.println(index1);
-                    int nrFis = 0;
 
+                tabelaLucrari.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+                if (evt.getClickCount() > 0) {
+
+
+
+                    fisiereSel.clear();
+                    rowSelectat = tabelaLucrari.rowAtPoint(evt.getPoint())+1;
+                    int nrFis = 0;
+                    int idSelectat = (int) tabelaLucrari.getValueAt(rowSelectat-1,0);
                     WriteDb fisS = new WriteDb();
                     try {
-                        nrFis = fisS.fissize(index1);//
+                        nrFis = fisS.fissize(idSelectat);//
                     } catch (SQLException throwables) {
                         throwables.printStackTrace();
                     }
-                    int[] arrayId1 = new int[nrFis + 1];
-
                     WriteDb appRf = new WriteDb();
 
-                    int jk = 0;
                     for (int i = 0; i < nrFis; i++) {
 
                         try {
-                            appRf.readfis(index1);
+                            appRf.readfis(idSelectat);
                         } catch (SQLException throwables) {
                             throwables.printStackTrace();
                         }
-
-                        arrayId1[jk] = appRf.fisiere.get(i+1).id;
-                        //String txtinlista1 = arrayId1[jk] + " - " + appRf.fisiere.get(i+1).client;
 
                         listaFis.addElement( appRf.fisiere.get(i+1).numeFisier);
 
@@ -302,7 +361,7 @@ public class fereaRead {
 
 
                         appRf.fisiere.clear();
-                        jk++;
+                      //  jk++;
 
 
                     }
@@ -310,6 +369,38 @@ public class fereaRead {
             }
         });
 
+
+        jtfFilter.getDocument().addDocumentListener(new DocumentListener(){
+
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                String text = jtfFilter.getText();
+                if (text.trim().length() == 0) {
+
+                    rowSorter.setRowFilter(null);
+                } else {
+
+                    rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text));
+                }
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                String text = jtfFilter.getText();
+
+                if (text.trim().length() == 0) {
+                    rowSorter.setRowFilter(null);
+                } else {
+                    rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text));
+                }
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+        });
 
     }
 
